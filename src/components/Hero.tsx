@@ -15,7 +15,7 @@ const Hero = () => {
         </div>
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="font-bold text-[#915eff] ">Andrés</span>
+            Hi, I&apos;m <span className="font-bold text-[#915eff] ">Andrés</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2`}>
             Fullstack Developer with experience in React, Typescript and NextJS
