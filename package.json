@@ -40,6 +40,7 @@
     "@commitlint/types": "^17.0.0",
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
+    "@types/react-vertical-timeline-component": "^3.3.3",
     "autoprefixer": "^10.4.15",
     "commitlint": "^11.0.0",
     "commitlint-config-gitmoji": "^2.2.6",
