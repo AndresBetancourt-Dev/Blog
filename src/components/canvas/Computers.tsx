@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -7,7 +7,11 @@ import CanvasLoader from "../Loader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useLoader } from "@react-three/fiber";
 
-const Computers = () => {
+interface ComputerProps {
+  isMobile?: boolean;
+}
+
+const Computer: FC<ComputerProps> = ({ isMobile }) => {
   const gltf = useLoader(GLTFLoader, "/desktop_pc/scene.glb");
 
   return (
@@ -23,8 +27,8 @@ const Computers = () => {
         shadow-mapSize={1024}
       />
       <primitive
-        scale={0.9}
-        position={[0, -3.25, -1.5]}
+        scale={isMobile ? 0.7 : 0.9}
+        position={isMobile ? [0, -3, 2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
         object={gltf.scene}
       />
@@ -33,6 +37,23 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <Canvas
       frameloop="demand"
@@ -46,7 +67,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers />
+        <Computer isMobile={isMobile} />
       </Suspense>
     </Canvas>
   );
