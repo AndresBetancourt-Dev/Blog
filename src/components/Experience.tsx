@@ -11,11 +11,11 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-import { Experience } from "../models/Experience";
+import { Experience as ExperienceModel } from "../models/Experience";
 import Image from "next/image";
 
 interface ExperienceCardProps {
-  experience: Experience;
+  experience: ExperienceModel;
 }
 const ExperienceCard: FC<ExperienceCardProps> = ({ experience }) => {
   return (

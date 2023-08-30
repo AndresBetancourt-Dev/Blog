@@ -1,5 +1,5 @@
 import React, { FC, Suspense } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
   Decal,
   Float,
