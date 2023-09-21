@@ -1,15 +1,15 @@
-import type { NextPage } from "next"
+import type { NextPage } from "next";
 import { Fragment } from "react";
-import { About, Experience, Feedbacks, Tech, Works } from "../components";
+import { About, Experience, Hero, Tech, Projects } from "../components";
 
 const Home: NextPage = () => {
   return (
     <Fragment>
-      <About/>
-      <Experience/>
-      <Tech/>
-      <Works/>
-      <Feedbacks/>
+      <Hero />
+      <Projects />
+      <Tech />
+      <About />
+      <Experience />
     </Fragment>
   );
 };

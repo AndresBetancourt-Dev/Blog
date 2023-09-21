@@ -1,11 +1,12 @@
 import { StaticImageData } from "next/image";
-import { Tag } from "./Tag";
+import { Technology } from "./Technology";
 
 export interface Project {
   index: number;
   name: string;
   description: string;
-  tags: Tag[];
+  technologies: Technology[];
   image: StaticImageData;
-  source_code_link: string;
+  source_code_link?: string;
+  link?: string;
 }

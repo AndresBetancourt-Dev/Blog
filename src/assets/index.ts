@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
+import browser from "./windows.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -20,15 +21,31 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import mobx from "./tech/mobx.png";
+import nextjs from "./tech/nextjs.png";
+import express from "./tech/express.png";
+import java from "./tech/java.png";
+import reactnative from "./tech/react-native-logo.png";
+import mysql from "./tech/mysql-logo.png";
+import sqlserver from "./tech/sql-server.png";
+import postgresql from "./tech/postgres.png";
+import sass from "./tech/sass.svg";
+import styledcomponents from "./tech/styled-components.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import globant from "./company/globant.png";
+import anthology from "./company/anthology.png";
+import cobis from "./company/cobis.png";
+import usc from "./company/usc.png";
 
-import carrent from "./carrent.png";
+import abc from "./projects/abc.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import ultralms from "./projects/ultra-lms.png";
+import rawg from "./projects/rawg.png";
 
 export {
   logo,
@@ -37,6 +54,7 @@ export {
   mobile,
   web,
   github,
+  browser,
   menu,
   close,
   css,
@@ -52,11 +70,27 @@ export {
   tailwind,
   typescript,
   threejs,
+  mobx,
+  nextjs,
+  express,
+  java,
+  reactnative,
+  mysql,
+  sqlserver,
+  sass,
+  postgresql,
+  styledcomponents,
   meta,
   shopify,
   starbucks,
   tesla,
-  carrent,
+  abc,
+  ultralms,
   jobit,
   tripguide,
+  globant,
+  anthology,
+  cobis,
+  usc,
+  rawg
 };

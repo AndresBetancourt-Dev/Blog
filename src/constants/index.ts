@@ -3,29 +3,22 @@ import {
   backend,
   creator,
   web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
+  abc,
+  rawg,
+  globant,
+  anthology,
+  cobis,
+  usc,
+  ultralms,
 } from "../assets";
 
+import { technologies } from "./technologies";
+
 export const navLinks = [
+  {
+    id: "projects",
+    title: "Projects",
+  },
   {
     id: "about",
     title: "About",
@@ -59,109 +52,62 @@ const services = [
   },
 ];
 
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-];
-
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Web UI Developer",
+    company_name: "Globant",
+    icon: globant,
+    iconBg: "#000",
+    date: "March 2022 - Current",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing and maintaining web applications using React.js, Typescript, Tailwind, Next.js, Javascript",
+      "Usage of React Native, SASS, Jenkins, Github, Azure Devops, Jira, MongoDB, Three.js and Docker",
+      "Guide other Globers giving them exercises and technologies to learn when in Talent Pool",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "Software Developer",
+    company_name: "Blackboard - Anthology",
+    icon: anthology,
+    iconBg: "#FFF",
+    date: "March 2022 - August 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Development of Learning Management System (LMS) Features using React, Typescript, Java, Redux, AWS and PostgreSQL.",
+      "Check of proper A11Y standards applied to the developments.",
+      "Usage of Jenkins, Performance Tools, Cypress/Selenium Jira, Azure Devops, Github and Docker",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    title: "Software Developer",
+    company_name: "Cobiscorp - Cobis Topaz",
+    icon: cobis,
+    iconBg: "#000",
+    date: "January 2021 - March 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing and construction of banking software using Javascript, Angular.js, Java, SQL Server, Stored Procedures",
+      "Usage of AWS Features such as Aurora, Step Functions, Lambda and EC2",
+      "Usage of Jenkins, Azure Devops and Team Foundation Server, Docker",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    title: "Full Stack Developer",
+    company_name: "Universidad Santiago de Cali",
+    icon: usc,
+    iconBg: "#fff",
+    date: "Jan 2020 - Dec 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing and maintaining web applications using React.js, React Native, Wordpress, Joomla, HTML, CSS, Javascript, Git and Github",
+      "Creation of Backend using Express.js, Node.js, MongoDB",
+      "Maintaing of Website using CPanel, Database Access, Role Management and Hosting",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
@@ -198,67 +144,42 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "ABC Network",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      "Creation of new features and maintenance of web streaming platform for the client ABC Network.",
+    technologies: [
+      technologies.React,
+      technologies.JS,
+      technologies.MobX,
+      technologies.Sass,
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: abc,
+    link: "https://abc.com",
   },
   {
-    name: "Job IT",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    name: "RAWG Games",
+    description: "Web application making usage of RAWG Games API.",
+    technologies: [technologies.React, technologies.TS, technologies.NextJS, technologies.StyledComponents, technologies.Tailwind],
+    image: rawg,
+    source_code_link: "https://github.com/AndresBetancourt-Dev/Rawg",
+    link: "https://rawg-games.vercel.app/",
   },
   {
-    name: "Trip Guide",
+    name: "Blackboard - Anthology Ultra LMS",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      "Development of new features and bug solutions within popular LMS Blackboard - Anthology regarding Messages, Student Preview and Discussions.",
+    technologies: [
+      technologies.React,
+      technologies.JS,
+      technologies.TS,
+      technologies.Redux,
+      technologies.Git,
+      technologies.Java,
+      technologies.PostgreSQL,
+      technologies.Sass,
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: ultralms,
+    link: "https://www.blackboard.com/learnultra",
   },
 ];
 

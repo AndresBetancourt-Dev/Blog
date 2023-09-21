@@ -1,35 +1,32 @@
 import React from "react";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
 import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full h-screen mx-auto bg-hero-pattern bg-cover bg-no-repeat bg-center">
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#915eff]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          <div className="w-5 h-5 rounded-full bg-white" />
+          <div className="w-1 sm:h-80 h-40 bg-white" />
         </div>
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I&apos;m{" "}
-            <span className="font-bold text-[#915eff] ">Andrés</span>
+          <h1 className={`${styles.heroHeadText} text-white drop-shadow-sm shadow-orange-500`}>
+            Andrés Betancourt
           </h1>
           <p className={`${styles.heroSubText} mt-2`}>
-            Fullstack Developer with experience in React, Typescript and NextJS
+            Fullstack Developer with focus on Web and Mobile Development
           </p>
         </div>
-      </div>
-      <ComputersCanvas />
+      </div> 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-white flex justify-center items-start p-2">
             <motion.div
               animate={{ y: [0, 24, 0] }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
+              className="w-3 h-3 rounded-full bg-white mb-1"
               transition={{
                 duration: 1.5,
                 repeat: Infinity,

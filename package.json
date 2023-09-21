@@ -31,6 +31,7 @@
     "react-parallax-tilt": "^1.7.163",
     "react-vertical-timeline-component": "^3.6.0",
     "save-dev": "^0.0.1-security",
+    "sharp": "^0.32.6",
     "three": "^0.155.0",
     "use": "^3.1.1"
   },
