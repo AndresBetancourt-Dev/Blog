@@ -42,8 +42,6 @@ import cobis from "./company/cobis.png";
 import usc from "./company/usc.png";
 
 import abc from "./projects/abc.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 import ultralms from "./projects/ultra-lms.png";
 import rawg from "./projects/rawg.png";
 
@@ -86,8 +84,6 @@ export {
   tesla,
   abc,
   ultralms,
-  jobit,
-  tripguide,
   globant,
   anthology,
   cobis,
