@@ -10,6 +10,9 @@ import {
   cobis,
   usc,
   ultralms,
+  transmiford,
+  santander,
+  banistmo
 } from "../assets";
 
 import { technologies } from "./technologies";
@@ -180,6 +183,50 @@ const projects = [
     ],
     image: ultralms,
     link: "https://www.blackboard.com/learnultra",
+  },
+  {
+    name: "Banistmo",
+    description:
+      "Banistmo - Risk Matrix | Risk Profile to determine if a client is eligible for open an account in the bank, also Forms for Know Your Customer and Legal Person, made using Javascript, Java, CSS, MySQL, SQL Server and AWS.",
+    technologies: [
+      technologies.Java,
+      technologies.JS,
+      technologies.MySQL,
+      technologies.SQLServer,
+      technologies.HTML,
+      technologies.CSS,
+      technologies.JS,
+    ],
+    image: banistmo,
+  },
+  {
+    name: "Santander Perú",
+    description:
+      "Construction of Forms to use in a BPMN Process for customers creation, Registration, Sensible Data, Addresses, Telephones, Contacts, Personal References, Bussiness Analysis, Bussiness Data, made using Javascript, Java, CSS, SQL Server.",
+    technologies: [
+      technologies.Java,
+      technologies.JS,
+      technologies.SQLServer,
+      technologies.HTML,
+      technologies.CSS,
+      technologies.JS,
+    ],
+    image: santander,
+  },
+  {
+    name: "Transmiford",
+    description:
+      "Creation of E-commerce using Wordpress, Woocomerce, Elementor, HTML, CSS and JS",
+    technologies: [
+      technologies.Wordpress,
+      technologies.WooCommerce,
+      technologies.Elementor,
+      technologies.HTML,
+      technologies.CSS,
+      technologies.JS,
+    ],
+    image: transmiford,
+    link: "https://transmiford.com",
   },
 ];
 

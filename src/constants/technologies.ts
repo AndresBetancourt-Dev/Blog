@@ -21,7 +21,10 @@ import {
   sqlserver,
   sass,
   postgresql,
-  styledcomponents
+  styledcomponents,
+  wordpress,
+  woocommerce,
+  elementor,
 } from "../assets";
 
 export const technologies = {
@@ -108,14 +111,26 @@ export const technologies = {
   },
   PostgreSQL: {
     name: "PostgreSQL",
-    icon: postgresql
+    icon: postgresql,
   },
   Sass: {
     name: "SASS",
-    icon: sass
+    icon: sass,
   },
   StyledComponents: {
     name: "Styled Components",
-    icon: styledcomponents
-  }
+    icon: styledcomponents,
+  },
+  Wordpress: {
+    name: "Wordpress",
+    icon: wordpress,
+  },
+  WooCommerce: {
+    name: "WooCommerce",
+    icon: woocommerce,
+  },
+  Elementor: {
+    name: "Elementor",
+    icon: elementor,
+  },
 };

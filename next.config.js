@@ -7,20 +7,12 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-/**
- * A fork of 'next-pwa' that has app directory support
- * @see https://github.com/shadowwalker/next-pwa/issues/424#issuecomment-1332258575
- */
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
 });
 
 const nextConfig = {
-  // uncomment the following snippet if using styled components
-  // compiler: {
-  //   styledComponents: true,
-  // },
-  reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+  reactStrictMode: true,
   experimental: {
     reactRoot: "concurrent",
     appDir: true,
@@ -28,10 +20,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'randomuser.me',
-        port: '',
-        pathname: '/api/portraits/**',
+        protocol: "https",
+        hostname: "randomuser.me",
+        port: "",
+        pathname: "/api/portraits/**",
       },
     ],
   },
@@ -40,7 +32,7 @@ const nextConfig = {
       // We're in the browser build, so we can safely exclude the sharp module
       config.externals.push("sharp");
     }
-    // audio support
+    // Audio support
     config.module.rules.push({
       test: /\.(ogg|mp3|wav|mpe?g)$/i,
       exclude: config.exclude,
@@ -59,7 +51,7 @@ const nextConfig = {
       ],
     });
 
-    // shader support
+    // Shader support
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       exclude: /node_modules/,
@@ -83,11 +75,9 @@ const KEYS_TO_OMIT = [
 module.exports = (phase, { defaultConfig }) => {
   const plugins = [[withBundleAnalyzer, {}]];
 
-  if (phase === PHASE_PRODUCTION_BUILD) {
-    plugins.unshift([withPWA]);
-  }
+  if (phase === PHASE_PRODUCTION_BUILD) plugins.unshift([withPWA]);
 
-  const wConfig = plugins.reduce(
+  const finalPlugins = plugins.reduce(
     (acc, [plugin, config]) => plugin({ ...acc, ...config }),
     {
       ...defaultConfig,
@@ -96,9 +86,9 @@ module.exports = (phase, { defaultConfig }) => {
   );
 
   const finalConfig = {};
-  Object.keys(wConfig).forEach((key) => {
+  Object.keys(finalPlugins).forEach((key) => {
     if (!KEYS_TO_OMIT.includes(key)) {
-      finalConfig[key] = wConfig[key];
+      finalConfig[key] = finalPlugins[key];
     }
   });
 

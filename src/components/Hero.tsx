@@ -1,10 +1,12 @@
 import React from "react";
 import { styles } from "../styles";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto bg-hero-pattern bg-cover bg-no-repeat bg-center">
+    <section className="relative w-full h-screen mx-auto bg-cover bg-no-repeat bg-center">
+      <Image className="w-full h-full object-cover" src={"/herobg.png"} alt="Hero Background" width={1920} height={1330}/>
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >

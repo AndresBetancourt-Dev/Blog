@@ -1,3 +1,6 @@
+/**
+ * Main
+ */
 import logo from "./logo.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
@@ -8,6 +11,9 @@ import browser from "./windows.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
+/**
+ * Technologies
+ */
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -31,7 +37,13 @@ import sqlserver from "./tech/sql-server.png";
 import postgresql from "./tech/postgres.png";
 import sass from "./tech/sass.svg";
 import styledcomponents from "./tech/styled-components.png";
+import wordpress from "./tech/wordpress.png";
+import woocommerce from './tech/woocommerce.png';
+import elementor from './tech/elementor.svg';
 
+/**
+ * Companies
+ */
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
@@ -41,11 +53,18 @@ import anthology from "./company/anthology.png";
 import cobis from "./company/cobis.png";
 import usc from "./company/usc.png";
 
+/**
+ * Projects
+ */
 import abc from "./projects/abc.png";
 import ultralms from "./projects/ultra-lms.png";
 import rawg from "./projects/rawg.png";
+import santander from './projects/santander-peru.jpg';
+import transmiford from './projects/transmiford.png';
+import banistmo from './projects/banistmo.png';
 
 export {
+  /** Main */
   logo,
   backend,
   creator,
@@ -55,6 +74,7 @@ export {
   browser,
   menu,
   close,
+  /** Technologies */
   css,
   docker,
   figma,
@@ -78,15 +98,23 @@ export {
   sass,
   postgresql,
   styledcomponents,
+  wordpress,
+  woocommerce,
+  elementor,
+  /** Companies */
   meta,
   shopify,
   starbucks,
   tesla,
-  abc,
-  ultralms,
   globant,
   anthology,
   cobis,
   usc,
-  rawg
+  /** Projects */
+  abc,
+  ultralms,
+  rawg,
+  santander,
+  transmiford,
+  banistmo
 };
