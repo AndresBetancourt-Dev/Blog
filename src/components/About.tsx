@@ -34,10 +34,10 @@ const ServiceCard: FC<ServiceCardProps> = ({ index, title, icon }) => (
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.section variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
+      </motion.section>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}

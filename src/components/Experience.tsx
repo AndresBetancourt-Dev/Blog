@@ -10,7 +10,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import { textVariantAsProps } from "../utils/motion";
 import { Experience as ExperienceModel } from "../models/Experience";
 import Image from "next/image";
 
@@ -64,7 +64,7 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div {...textVariantAsProps}>
         <p className={`${styles.sectionSubText} text-center`}>
           What I have done so far
         </p>
@@ -73,7 +73,7 @@ const Experience = () => {
         </h2>
       </motion.div>
 
-      <div className="mt-20 flex flex-col">
+      <div className="mt-4 sm:mt-20 flex flex-col">
         <VerticalTimeline>
           {experiences.map((experience, index) => (
             <ExperienceCard

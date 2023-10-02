@@ -6,7 +6,10 @@ import { styles } from "../styles";
 import { browser, github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
+import {
+  fadeInAsProps,
+  textVariantAsProps,
+} from "../utils/motion";
 import { Project } from "../models/Project";
 import Image from "next/image";
 
@@ -22,8 +25,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
+    <motion.div className="w-full" {...fadeInAsProps("up", "spring", index * 0.5, 0.75)}>
+      <Tilt className="bg-tertiary p-5 rounded-2xl w-full">
         <div className="relative w-full h-[230px]">
           <Image
             src={image}
@@ -69,7 +72,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
             <div
               onClick={() => window.open(link, "_blank")}
               className="w-8 h-8 rounded-full flex justify-center items-center"
-              key={tech.name}
+              key={`${name}${tech.name}`}
             >
               <Image
                 src={tech.icon}
@@ -87,14 +90,14 @@ const ProjectCard: FC<ProjectCardProps> = ({
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.section {...textVariantAsProps}>
         <p className={`${styles.sectionSubText} `}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
-      </motion.div>
+      </motion.section>
 
       <div className="w-full flex">
         <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+          {...fadeInAsProps("", "", 0.1, 1)}
           className="mt-3 text-white text-[17px] max-w-3xl leading-[30px]"
         >
           Following projects showcases my skills and experience through
@@ -105,9 +108,13 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-12 flex flex-wrap gap-7">
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard
+            key={`project-${project.name}`}
+            index={index}
+            {...project}
+          />
         ))}
       </div>
     </>
