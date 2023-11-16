@@ -7,8 +7,6 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <Navbar />
       {children}
       <div className="relative z-0">
-        <Contact />
-        <StarsCanvas />
       </div>
     </div>
   );

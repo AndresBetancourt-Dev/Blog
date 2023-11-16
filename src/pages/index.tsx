@@ -13,9 +13,9 @@ const Home: NextPage = () => {
         }
       />
       <Hero />
+      <About />
       <Projects />
       <Tech />
-      <About />
       <Experience />
     </Fragment>
   );

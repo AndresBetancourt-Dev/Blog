@@ -25,8 +25,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <motion.div className="w-full" {...fadeInAsProps("up", "spring", index * 0.5, 0.75)}>
-      <Tilt className="bg-tertiary p-5 rounded-2xl w-full">
+    <motion.div className="w-full h-auto" {...fadeInAsProps("up", "spring", index * 0.5, 0.75)}>
+      <Tilt className="bg-tertiary p-5 rounded-2xl w-full h-auto">
         <div className="relative w-full h-[230px]">
           <Image
             src={image}
@@ -62,12 +62,12 @@ const ProjectCard: FC<ProjectCardProps> = ({
           </div>
         </div>
 
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-white text-[14px]">{description}</p>
+        <div className="project-content">
+          <h3 className="text-white font-bold text-[24px] pt-2">{name}</h3>
+          <p className="mt-2 text-white text-[14px] pb-2">{description}</p>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {technologies.map((tech) => (
             <div
               onClick={() => window.open(link, "_blank")}
@@ -108,8 +108,8 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-12 flex flex-wrap gap-7">
-        {projects.map((project, index) => (
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        {[...projects].slice(0,6).map((project, index) => (
           <ProjectCard
             key={`project-${project.name}`}
             index={index}

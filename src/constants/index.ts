@@ -19,21 +19,21 @@ import { technologies } from "./technologies";
 
 export const navLinks = [
   {
-    id: "projects",
-    title: "Projects",
-  },
-  {
     id: "about",
     title: "About",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "work",
     title: "Work",
   },
-  {
+  /* {
     id: "contact",
     title: "Contact",
-  },
+  }, */
 ];
 
 const services = [
