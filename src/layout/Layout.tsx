@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react";
-import { Contact, Navbar, StarsCanvas } from "../components";
+import { Navbar } from "../components";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
