@@ -38,8 +38,8 @@ import postgresql from "./tech/postgres.png";
 import sass from "./tech/sass.svg";
 import styledcomponents from "./tech/styled-components.png";
 import wordpress from "./tech/wordpress.png";
-import woocommerce from './tech/woocommerce.png';
-import elementor from './tech/elementor.svg';
+import woocommerce from "./tech/woocommerce.png";
+import elementor from "./tech/elementor.svg";
 
 /**
  * Companies
@@ -59,9 +59,9 @@ import usc from "./company/usc.png";
 import abc from "./projects/abc.png";
 import ultralms from "./projects/ultra-lms.png";
 import rawg from "./projects/rawg.png";
-import santander from './projects/santander-peru.jpg';
-import transmiford from './projects/transmiford.png';
-import banistmo from './projects/banistmo.png';
+import santander from "./projects/santander-peru.jpg";
+import transmiford from "./projects/transmiford.png";
+import banistmo from "./projects/banistmo.png";
 
 export {
   /** Main */
@@ -116,5 +116,5 @@ export {
   rawg,
   santander,
   transmiford,
-  banistmo
+  banistmo,
 };

@@ -12,7 +12,7 @@ import {
   ultralms,
   transmiford,
   santander,
-  banistmo
+  banistmo,
 } from "../assets";
 
 import { technologies } from "./technologies";
@@ -162,7 +162,13 @@ const projects = [
   {
     name: "RAWG Games",
     description: "Web application making usage of RAWG Games API.",
-    technologies: [technologies.React, technologies.TS, technologies.NextJS, technologies.StyledComponents, technologies.Tailwind],
+    technologies: [
+      technologies.React,
+      technologies.TS,
+      technologies.NextJS,
+      technologies.StyledComponents,
+      technologies.Tailwind,
+    ],
     image: rawg,
     source_code_link: "https://github.com/AndresBetancourt-Dev/Rawg",
     link: "https://rawg-games.vercel.app/",

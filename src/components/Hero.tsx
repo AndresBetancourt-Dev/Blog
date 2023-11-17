@@ -6,7 +6,14 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto bg-cover bg-no-repeat bg-center">
-      <Image className="w-full h-full object-cover" src={"/herobg.png"} alt="Hero Background" width={1920} height={1330} priority/>
+      <Image
+        className="w-full h-full object-cover"
+        src={"/herobg.png"}
+        alt="Hero Background"
+        width={1920}
+        height={1330}
+        priority
+      />
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
@@ -15,14 +22,16 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 bg-white" />
         </div>
         <div>
-          <h1 className={`${styles.heroHeadText} text-white drop-shadow-sm shadow-orange-500`}>
+          <h1
+            className={`${styles.heroHeadText} text-white drop-shadow-sm shadow-orange-500`}
+          >
             Andrés Betancourt
           </h1>
           <p className={`${styles.heroSubText} mt-2`}>
             Fullstack Developer with focus on Web and Mobile Development
           </p>
         </div>
-      </div> 
+      </div>
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-white flex justify-center items-start p-2">

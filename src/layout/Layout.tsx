@@ -6,8 +6,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
     <div className="relative z-0 bg-dark-primary">
       <Navbar />
       {children}
-      <div className="relative z-0">
-      </div>
+      <div className="relative z-0"></div>
     </div>
   );
 };

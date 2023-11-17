@@ -6,10 +6,7 @@ import { styles } from "../styles";
 import { browser, github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import {
-  fadeInAsProps,
-  textVariantAsProps,
-} from "../utils/motion";
+import { fadeInAsProps, textVariantAsProps } from "../utils/motion";
 import { Project } from "../models/Project";
 import Image from "next/image";
 
@@ -25,7 +22,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <motion.div className="w-full h-auto" {...fadeInAsProps("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      className="w-full h-auto"
+      {...fadeInAsProps("up", "spring", index * 0.5, 0.75)}
+    >
       <Tilt className="bg-tertiary p-5 rounded-2xl w-full h-auto">
         <div className="relative w-full h-[230px]">
           <Image
@@ -109,7 +109,7 @@ const Works = () => {
       </div>
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-        {[...projects].slice(0,6).map((project, index) => (
+        {[...projects].slice(0, 6).map((project, index) => (
           <ProjectCard
             key={`project-${project.name}`}
             index={index}
