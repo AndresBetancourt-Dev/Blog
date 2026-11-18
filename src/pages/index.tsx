@@ -1,24 +1,25 @@
 import type { NextPage } from "next";
-import { NextSeo } from "next-seo";
-import { Fragment } from "react";
-import { About, Experience, Hero, Tech, Projects } from "../components";
+import {
+  About,
+  ContactCta,
+  Experience,
+  FeaturedProjects,
+  Hero,
+  Seo,
+  Skills,
+} from "../components";
+import { personSchema, websiteSchema } from "../components/seo/schema";
 
-const Home: NextPage = () => {
-  return (
-    <Fragment>
-      <NextSeo
-        title={"Andrés Betancourt - Software Developer"}
-        description={
-          "Fullstack Developer with focus on Web and Mobile Development"
-        }
-      />
-      <Hero />
-      <About />
-      <Projects />
-      <Tech />
-      <Experience />
-    </Fragment>
-  );
-};
+const Home: NextPage = () => (
+  <>
+    <Seo path="/" type="profile" jsonLd={[personSchema(), websiteSchema()]} />
+    <Hero />
+    <About />
+    <FeaturedProjects />
+    <Experience />
+    <Skills />
+    <ContactCta />
+  </>
+);
 
 export default Home;

@@ -18,6 +18,18 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Configuration
+
+Set these environment variables (e.g. in Vercel → Project → Settings → Environment Variables):
+
+| Variable                    | Purpose                                                                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`      | Canonical URL used for SEO (canonical links, Open Graph, sitemap). Falls back to Vercel's production domain, then `http://localhost:3000`. |
+| `NEXT_PUBLIC_LINKEDIN_URL`  | Shows LinkedIn links in the hero, menu, footer and contact section.                                                                        |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional public email for the contact button.                                                                                              |
+
+Content lives in `src/constants/` (`projects.ts`, `experiences.ts`, `technologies.ts`, `site.ts`). Each project automatically gets a statically generated page at `/projects/[slug]`, a sitemap entry and a generated Open Graph image (`/api/og`).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

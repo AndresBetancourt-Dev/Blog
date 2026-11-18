@@ -1,0 +1,43 @@
+/**
+ * Global site configuration — the single source of truth for identity, SEO
+ * and social links. Optional links are only rendered when they are set.
+ */
+export const SITE = {
+  name: "Andrés Betancourt",
+  shortName: "AB · Dev",
+  role: "Senior Software Engineer",
+  title: "Andrés Betancourt — Senior Software Engineer",
+  description:
+    "Senior Software Engineer with 6+ years building fast, accessible web and mobile products with React, Next.js, TypeScript and Node.js for healthcare, streaming, EdTech and banking clients.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  locale: "en_US",
+  location: "Colombia · Remote",
+  currentCompany: "EPAM Systems",
+  keywords: [
+    "Andrés Betancourt",
+    "Senior Software Engineer",
+    "Full Stack Developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "NestJS",
+    "React Native",
+    "Frontend Engineer",
+    "Colombia",
+  ],
+  social: {
+    github: "https://github.com/AndresBetancourt-Dev",
+    /** Set NEXT_PUBLIC_LINKEDIN_URL (or edit this value) to show LinkedIn links. */
+    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || undefined,
+    /** Set NEXT_PUBLIC_CONTACT_EMAIL to show a public contact email. */
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || undefined,
+  },
+} as const;
+
+export const absoluteUrl = (path = "/") =>
+  `${SITE.url}${path.startsWith("/") ? path : `/${path}`}`;
+
+export const sameAs = [SITE.social.github, SITE.social.linkedin].filter(
+  (value): value is string => Boolean(value),
+);

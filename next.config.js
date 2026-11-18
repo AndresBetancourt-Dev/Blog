@@ -1,7 +1,4 @@
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-} = require("next/constants");
+const { PHASE_PRODUCTION_BUILD } = require("next/constants");
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -11,86 +8,45 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
 });
 
+/**
+ * Canonical site URL used for SEO (canonical links, Open Graph, sitemap).
+ * Priority: explicit NEXT_PUBLIC_SITE_URL → Vercel production domain → localhost.
+ */
+const resolveSiteUrl = () => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL)
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+};
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    reactRoot: "concurrent",
-    appDir: true,
+  poweredByHeader: false,
+  env: {
+    NEXT_PUBLIC_SITE_URL: resolveSiteUrl().replace(/\/$/, ""),
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "randomuser.me",
-        port: "",
-        pathname: "/api/portraits/**",
-      },
-    ],
+    formats: ["image/avif", "image/webp"],
   },
-  webpack(config, { isServer }) {
-    if (!isServer) {
-      // We're in the browser build, so we can safely exclude the sharp module
-      config.externals.push("sharp");
-    }
-    // Audio support
-    config.module.rules.push({
-      test: /\.(ogg|mp3|wav|mpe?g)$/i,
-      exclude: config.exclude,
-      use: [
-        {
-          loader: require.resolve("url-loader"),
-          options: {
-            limit: config.inlineImageLimit,
-            fallback: require.resolve("file-loader"),
-            publicPath: `${config.assetPrefix}/_next/static/images/`,
-            outputPath: `${isServer ? "../" : ""}static/images/`,
-            name: "[name]-[hash].[ext]",
-            esModule: config.esModule || false,
-          },
-        },
-      ],
-    });
-
-    // Shader support
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      exclude: /node_modules/,
-      use: ["raw-loader", "glslify-loader"],
-    });
-
-    return config;
+  experimental: {
+    optimizePackageImports: ["@phosphor-icons/react"],
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        ],
+      },
+    ];
   },
 };
 
-const KEYS_TO_OMIT = [
-  "webpackDevMiddleware",
-  "configOrigin",
-  "target",
-  "analyticsId",
-  "webpack5",
-  "amp",
-  "assetPrefix",
-];
-
-module.exports = (phase, { defaultConfig }) => {
-  const plugins = [[withBundleAnalyzer, {}]];
-
-  if (phase === PHASE_PRODUCTION_BUILD) plugins.unshift([withPWA]);
-
-  const finalPlugins = plugins.reduce(
-    (acc, [plugin, config]) => plugin({ ...acc, ...config }),
-    {
-      ...defaultConfig,
-      ...nextConfig,
-    },
-  );
-
-  const finalConfig = {};
-  Object.keys(finalPlugins).forEach((key) => {
-    if (!KEYS_TO_OMIT.includes(key)) {
-      finalConfig[key] = finalPlugins[key];
-    }
-  });
-
-  return finalConfig;
+module.exports = (phase) => {
+  const config = withBundleAnalyzer(nextConfig);
+  return phase === PHASE_PRODUCTION_BUILD ? withPWA(config) : config;
 };
