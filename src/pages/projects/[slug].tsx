@@ -4,21 +4,14 @@ import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
-  ArrowUpRight,
-  Buildings,
-  CalendarBlank,
   CheckCircle,
-  GithubLogo,
   LockSimple,
-  UserCircle,
 } from "@phosphor-icons/react";
 import { ContactCta, Seo } from "../../components";
 import ProjectCard from "../../components/projects/ProjectCard";
-import ProjectCover from "../../components/projects/ProjectCover";
-import { categoryIcons } from "../../components/projects/categoryIcons";
+import ProjectHero from "../../components/projects/ProjectHero";
 import { ogImageUrl } from "../../components/seo/Seo";
 import { breadcrumbSchema, projectSchema } from "../../components/seo/schema";
-import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import Reveal from "../../components/ui/Reveal";
 import TechChip from "../../components/ui/TechChip";
 import {
@@ -34,28 +27,6 @@ import { fadeUp, revealViewport, stagger } from "../../utils/motion";
 interface ProjectPageProps {
   slug: string;
 }
-
-const MetaItem = ({
-  icon: Icon,
-  label,
-  value,
-}: {
-  icon: typeof Buildings;
-  label: string;
-  value: string;
-}) => (
-  <div className="flex gap-3">
-    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-strong/10 text-accent">
-      <Icon size={18} aria-hidden="true" />
-    </span>
-    <div>
-      <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-        {label}
-      </dt>
-      <dd className="mt-0.5 text-sm font-medium text-fg">{value}</dd>
-    </div>
-  </div>
-);
 
 const AdjacentLink = ({
   project,
@@ -80,7 +51,7 @@ const AdjacentLink = ({
         )}
       </span>
       <span className="min-w-0">
-        <span className="block text-xs font-medium uppercase tracking-[0.14em] text-muted">
+        <span className="label block">
           {next ? "Next project" : "Previous project"}
         </span>
         <span className="mt-0.5 block truncate font-display text-lg font-semibold text-fg">
@@ -97,7 +68,6 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
 
   const { previous, next } = getAdjacentProjects(slug);
   const related = getRelatedProjects(slug);
-  const CategoryIcon = categoryIcons[project.category];
   const path = `/projects/${project.slug}`;
   const crumbs = [
     { name: "Home", path: "/" },
@@ -125,131 +95,15 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
       />
 
       <article>
-        <header className="relative isolate overflow-hidden pb-10 pt-28 sm:pb-14 sm:pt-36">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 opacity-25 dark:opacity-30"
-            style={{
-              backgroundImage: `radial-gradient(45% 60% at 10% 0%, ${project.accent[0]}, transparent), radial-gradient(40% 55% at 95% 5%, ${project.accent[1]}, transparent)`,
-            }}
-          />
-          <div className="container-page">
-            <Breadcrumbs items={crumbs} />
+        <ProjectHero project={project} crumbs={crumbs} />
 
-            {/* CSS animations: visible before hydration, so LCP isn't delayed. */}
-            <div className="mt-8 max-w-4xl">
-              <div className="flex animate-fade-up flex-wrap items-center gap-2">
-                <Link
-                  href={`/projects?category=${encodeURIComponent(
-                    project.category,
-                  )}`}
-                  className="chip min-h-[32px] transition-colors hover:border-accent/50 hover:text-accent"
-                >
-                  <CategoryIcon size={14} aria-hidden="true" />
-                  {project.category}
-                </Link>
-                {project.confidential && (
-                  <span className="chip min-h-[32px]">
-                    <LockSimple size={14} aria-hidden="true" />
-                    Under NDA
-                  </span>
-                )}
-              </div>
-
-              <h1
-                className="mt-5 animate-fade-up font-display text-4xl font-bold tracking-tight text-fg sm:text-6xl"
-                style={{ animationDelay: "70ms" }}
-              >
-                {project.name}
-              </h1>
-              <p
-                className="lead mt-4 max-w-2xl animate-fade-up"
-                style={{ animationDelay: "140ms" }}
-              >
-                {project.tagline}
-              </p>
-
-              {(project.link || project.sourceCode) && (
-                <div
-                  className="mt-8 flex animate-fade-up flex-wrap gap-3"
-                  style={{ animationDelay: "210ms" }}
-                >
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary"
-                    >
-                      Visit live site
-                      <ArrowUpRight
-                        size={18}
-                        weight="bold"
-                        aria-hidden="true"
-                      />
-                      <span className="sr-only">(opens in a new tab)</span>
-                    </a>
-                  )}
-                  {project.sourceCode && (
-                    <a
-                      href={project.sourceCode}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-ghost"
-                    >
-                      <GithubLogo size={18} aria-hidden="true" />
-                      Source code
-                      <span className="sr-only">(opens in a new tab)</span>
-                    </a>
-                  )}
-                </div>
-              )}
-
-              <dl
-                className="mt-10 grid animate-fade-up gap-5 border-t border-line pt-8 sm:grid-cols-3"
-                style={{ animationDelay: "280ms" }}
-              >
-                <MetaItem icon={UserCircle} label="Role" value={project.role} />
-                <MetaItem
-                  icon={Buildings}
-                  label={project.client ? "Client" : "Company"}
-                  value={
-                    project.client
-                      ? `${project.client} · via ${project.company}`
-                      : project.company
-                  }
-                />
-                <MetaItem
-                  icon={CalendarBlank}
-                  label="Period"
-                  value={project.period}
-                />
-              </dl>
-            </div>
-          </div>
-        </header>
-
-        <div className="container-page">
-          <div
-            className="relative aspect-[16/10] animate-fade-up overflow-hidden rounded-3xl border border-line shadow-card-hover sm:aspect-[16/8]"
-            style={{ animationDelay: "200ms" }}
-          >
-            <ProjectCover
-              project={project}
-              variant="hero"
-              priority
-              sizes="(min-width: 1280px) 1216px, 100vw"
-            />
-          </div>
-        </div>
-
-        <div className="container-page grid gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16">
+        <div className="container-page grid gap-12 pb-16 pt-8 sm:pb-20 sm:pt-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16">
           <div className="min-w-0 space-y-14">
             <Reveal>
               <section aria-labelledby="overview-title">
                 <h2
                   id="overview-title"
-                  className="font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl"
+                  className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
                 >
                   Overview
                 </h2>
@@ -265,7 +119,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
               <Reveal>
                 <h2
                   id="contributions-title"
-                  className="font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl"
+                  className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
                 >
                   What I did
                 </h2>
@@ -301,10 +155,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
             <Reveal delay={0.1}>
               <section aria-labelledby="stack-title" className="card p-6">
-                <h2
-                  id="stack-title"
-                  className="text-xs font-semibold uppercase tracking-[0.18em] text-muted"
-                >
+                <h2 id="stack-title" className="label">
                   Tech stack
                 </h2>
                 <ul className="mt-4 flex flex-wrap gap-2">
@@ -350,7 +201,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
                 <p className="eyebrow">Keep exploring</p>
                 <h2
                   id="related-title"
-                  className="mt-2 font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl"
+                  className="mt-2 font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
                 >
                   Related projects
                 </h2>

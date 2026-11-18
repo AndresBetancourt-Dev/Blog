@@ -39,7 +39,10 @@ const ProjectCard = ({ project, headingLevel = "h3" }: ProjectCardProps) => {
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="text-xs font-medium text-muted">
+        <p
+          className="truncate text-xs font-medium text-muted"
+          title={`${project.client ?? project.company} · ${project.period}`}
+        >
           {project.client ?? project.company} · {project.period}
         </p>
         <div className="mt-1.5 flex items-start justify-between gap-3">

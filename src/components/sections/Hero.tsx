@@ -56,11 +56,11 @@ const Hero = () => {
 
           <h1
             id="hero-title"
-            className="mt-6 animate-fade-up font-display text-[2.75rem] font-bold leading-[1.02] tracking-tight text-white xs:text-6xl sm:text-7xl lg:text-8xl"
+            className="mt-6 animate-fade-up font-display text-[3rem] font-semibold leading-[0.98] tracking-[-0.03em] text-white xs:text-6xl sm:text-7xl lg:text-[6.5rem]"
             style={{ animationDelay: "140ms" }}
           >
             {SITE.name.split(" ")[0]}{" "}
-            <span className="gradient-text">{SITE.name.split(" ")[1]}</span>
+            <span className="text-violet-300">{SITE.name.split(" ")[1]}</span>
           </h1>
 
           <p
@@ -119,7 +119,7 @@ const Hero = () => {
                   {stat.label}
                 </dt>
                 <dd
-                  className="font-display text-2xl font-bold text-white sm:text-3xl"
+                  className="font-display text-2xl font-semibold text-white sm:text-3xl"
                   suppressHydrationWarning
                 >
                   {stat.value}

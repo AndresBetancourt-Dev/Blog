@@ -32,8 +32,10 @@ const Navbar = () => {
     ? "projects"
     : null;
 
-  /** Light-on-dark styling while floating over the home hero image. */
-  const onMedia = isHome && !scrolled && !open;
+  /** Pages that open with a full-bleed image hero under the navbar. */
+  const hasMediaHero = isHome || router.pathname === "/projects/[slug]";
+  /** Light-on-dark styling while floating over that hero image. */
+  const onMedia = hasMediaHero && !scrolled && !open;
   const solid = scrolled && !open;
 
   const close = useCallback(() => setOpen(false), []);

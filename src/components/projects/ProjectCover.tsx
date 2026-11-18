@@ -107,14 +107,14 @@ const ProjectCover = ({
       >
         <p
           className={cn(
-            "font-display font-bold leading-tight tracking-tight text-white",
+            "font-display font-semibold leading-tight tracking-tight text-white",
             variant === "hero" ? "text-4xl sm:text-6xl" : "text-2xl",
           )}
         >
           {name}
         </p>
         {project.confidential && (
-          <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-white/75">
+          <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/75">
             Under NDA
           </p>
         )}

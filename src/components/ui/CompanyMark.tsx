@@ -34,7 +34,7 @@ const CompanyMark = ({
     ) : (
       <span
         aria-hidden="true"
-        className="font-display text-lg font-bold"
+        className="font-display text-lg font-semibold"
         style={{ color: readableTextOn(brandColor) }}
       >
         {monogram}

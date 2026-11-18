@@ -31,7 +31,7 @@ const ProjectsPage: NextPage = () => (
         <Breadcrumbs items={crumbs} />
         <p className="eyebrow mt-8 animate-fade-up">Portfolio</p>
         <h1
-          className="mt-2 animate-fade-up font-display text-4xl font-bold tracking-tight text-fg sm:text-6xl"
+          className="mt-2 animate-fade-up font-display text-4xl font-semibold tracking-tight text-fg sm:text-6xl"
           style={{ animationDelay: "80ms" }}
         >
           Projects

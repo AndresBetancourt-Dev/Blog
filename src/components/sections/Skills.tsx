@@ -28,10 +28,7 @@ const Skills = () => (
           aria-labelledby={`skills-${category}`}
           className="card mb-5 break-inside-avoid p-5 sm:p-6"
         >
-          <h3
-            id={`skills-${category}`}
-            className="text-xs font-semibold uppercase tracking-[0.18em] text-muted"
-          >
+          <h3 id={`skills-${category}`} className="label">
             {category}
           </h3>
           <ul className="mt-4 flex flex-wrap gap-2">

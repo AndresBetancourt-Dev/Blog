@@ -40,10 +40,13 @@ const ExperienceItem = ({ experience }: { experience: ExperienceModel }) => {
     >
       {/* Desktop date column */}
       <div className="hidden pt-3 text-right md:block">
-        <p className="text-sm font-semibold text-fg">
+        <p className="font-mono text-sm font-medium text-fg">
           <DateRange experience={experience} />
         </p>
-        <p className="mt-1 text-xs text-muted" suppressHydrationWarning>
+        <p
+          className="mt-1 font-mono text-xs text-muted"
+          suppressHydrationWarning
+        >
           {formatDuration(experience.start, experience.end)}
         </p>
       </div>
@@ -122,9 +125,7 @@ const ExperienceItem = ({ experience }: { experience: ExperienceModel }) => {
 
           {relatedProjects.length > 0 && (
             <div className="mt-5 border-t border-line pt-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-                Projects
-              </p>
+              <p className="label">Projects</p>
               <ul className="mt-2 flex flex-wrap gap-2">
                 {relatedProjects.map((project) => (
                   <li key={project.slug}>

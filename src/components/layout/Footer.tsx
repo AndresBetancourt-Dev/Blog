@@ -40,9 +40,7 @@ const Footer = () => {
         </div>
 
         <nav aria-label="Footer">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-            Explore
-          </p>
+          <p className="label">Explore</p>
           <ul className="mt-4 space-y-1">
             {navLinks.map((link) => (
               <li key={link.id}>
@@ -58,9 +56,7 @@ const Footer = () => {
         </nav>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-            Connect
-          </p>
+          <p className="label">Connect</p>
           <ul className="mt-4 space-y-1">
             {socials.map(({ href, label, icon: Icon }) => (
               <li key={label}>

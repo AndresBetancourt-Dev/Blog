@@ -25,7 +25,7 @@ const NotFoundPage = () => (
       <div className="container-page relative z-10 text-center">
         <p className="eyebrow animate-fade-up">Error 404</p>
         <h1
-          className="mt-3 animate-fade-up font-display text-4xl font-bold tracking-tight text-fg sm:text-6xl"
+          className="mt-3 animate-fade-up font-display text-4xl font-semibold tracking-tight text-fg sm:text-6xl"
           style={{ animationDelay: "80ms" }}
         >
           Lost in space

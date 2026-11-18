@@ -1,6 +1,10 @@
 import {
   abc,
   banistmo,
+  disneynow,
+  ejecutapp,
+  filu,
+  polyphonic,
   rawg,
   santander,
   transmiford,
@@ -11,25 +15,25 @@ import type { Project, ProjectCategory } from "../models/Project";
 /** Curated order: most recent first. Source: LinkedIn profile + portfolio. */
 export const projects: Project[] = [
   {
-    slug: "healthcare-video-platform",
-    name: "Healthcare Video Platform",
-    tagline:
-      "Secure, HIPAA-compliant video experiences for a healthcare product.",
+    slug: "polyphonic",
+    name: "Polyphonic",
+    tagline: "Johnson & Johnson MedTech's digital ecosystem for surgery.",
     summary:
-      "HIPAA-compliant healthcare application with FFmpeg video processing, AI-powered personalization and containerized Azure infrastructure.",
+      "J&J MedTech's digital ecosystem for surgery: video processing with FFmpeg, AI-powered personalization and HIPAA-compliant, containerized Azure infrastructure.",
     overview: [
-      "At EPAM Systems I build and maintain a healthcare application on NestJS, Node.js, React, Next.js and TypeScript, where performance, scalability and the protection of sensitive patient data come first.",
-      "The client and product are under NDA, so this page focuses on the engineering: video processing and streaming, cloud deployment, AI-driven personalization and the security practices required by HIPAA.",
+      "Polyphonic is Johnson & Johnson MedTech's digital ecosystem for surgery — device- and specialty-agnostic applications that keep surgical teams connected, including a case-centered platform that uses video to bring teams together.",
+      "At EPAM Systems I build and maintain it with NestJS, Node.js, React, Next.js and TypeScript, where performance, scalability and the protection of sensitive patient data come first. My work spans video processing and streaming, cloud deployment, AI-driven personalization and the security practices required by HIPAA.",
     ],
     contributions: [
       "Develop and maintain features across the NestJS / Node.js API and the React / Next.js front end in TypeScript.",
-      "Implemented FFmpeg-based video processing and streaming for efficient handling of video files.",
+      "Implemented FFmpeg-based video processing and streaming for efficient handling of surgical video files.",
       "Deploy and containerize services with Azure IaaS and Docker, simplifying infrastructure management.",
       "Integrated AI features that personalize content and improve user engagement.",
       "Apply HIPAA-compliant security measures for handling sensitive healthcare data.",
     ],
     role: "Senior Software Engineer",
     company: "EPAM Systems",
+    client: "Johnson & Johnson MedTech",
     period: "Dec 2024 – Present",
     category: "Healthcare",
     technologies: [
@@ -42,9 +46,10 @@ export const projects: Project[] = [
       "Azure",
       "Docker",
     ],
-    accent: ["#0891b2", "#4f46e5"],
+    image: polyphonic,
+    accent: ["#0f766e", "#1e293b"],
+    link: "https://www.jnjmedtech.com/en-US/products/digital/polyphonic-digital-ecosystem/solutions/",
     featured: true,
-    confidential: true,
   },
   {
     slug: "disneynow",
@@ -69,6 +74,7 @@ export const projects: Project[] = [
     period: "Sep 2023 – Nov 2024",
     category: "Streaming",
     technologies: ["React", "JS", "TS", "MobX", "Sass", "MaterialUI"],
+    image: disneynow,
     accent: ["#1d4ed8", "#9333ea"],
     link: "https://disneynow.com",
     featured: true,
@@ -203,7 +209,7 @@ export const projects: Project[] = [
     summary:
       "Administration web app for Ejecutapp Mobile, built with React, React Router, Context, Firebase Auth, Express and MongoDB.",
     overview: [
-      "Ejecutapp Web is the administration application for Ejecutapp Mobile, developed at Universidad Santiago de Cali.",
+      "Ejecutapp Web is the administration application for Ejecutapp Mobile — a product of an alliance between Universidad Santiago de Cali and Universidad de las Américas.",
       "It pairs a React front end — React Router for navigation and the Context API for shared state — with an Express and MongoDB back end, using Firebase Authentication for sign-in.",
     ],
     contributions: [
@@ -224,7 +230,8 @@ export const projects: Project[] = [
       "Node",
       "MongoDB",
     ],
-    accent: ["#059669", "#0d9488"],
+    image: ejecutapp,
+    accent: ["#7e22ce", "#4c1d95"],
   },
   {
     slug: "filu-book-fair",
@@ -233,7 +240,7 @@ export const projects: Project[] = [
     summary:
       "Landing page and detailed event calendar for the III International University Book Fair, built with React, static generation and Styled Components.",
     overview: [
-      "The Feria Internacional del Libro Universitario (FILU) is an international university book fair hosted by Universidad Santiago de Cali. For its third edition I built the landing page and the event calendar.",
+      "The Feria Internacional del Libro Universitario (FILU) is an international university book fair hosted by Universidad Santiago de Cali. For its third edition, held 13–18 September 2021, I built the landing page and the event calendar.",
       "The calendar presents every session with detailed information, and the site is statically generated so it loads quickly for visitors.",
     ],
     contributions: [
@@ -243,10 +250,11 @@ export const projects: Project[] = [
     ],
     role: "Frontend Web Developer",
     company: "Universidad Santiago de Cali",
-    period: "2020 – 2021",
+    period: "Sep 2021",
     category: "Web",
     technologies: ["React", "StyledComponents", "JS", "HTML", "CSS"],
-    accent: ["#c2410c", "#db2777"],
+    image: filu,
+    accent: ["#7c3aed", "#db2777"],
   },
   {
     slug: "transmiford",

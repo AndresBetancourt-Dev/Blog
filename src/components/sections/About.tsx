@@ -51,9 +51,9 @@ const About = () => (
           <p>
             I&apos;ve shipped streaming experiences for The Walt Disney Company
             (ABC.com and DisneyNOW), learning tools for Blackboard, banking
-            platforms for Santander Perú and Banistmo, and today I work on a
-            HIPAA-compliant healthcare application with video processing and AI
-            features.
+            platforms for Santander Perú and Banistmo, and today I work on
+            Polyphonic, Johnson &amp; Johnson MedTech&apos;s digital ecosystem
+            for surgery.
           </p>
           <p>
             I care about clean architecture, performance and accessibility — and

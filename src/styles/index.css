@@ -88,12 +88,23 @@
     @apply mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-12;
   }
 
+  /* Section kicker: monospace with a short rule, e.g. "—— My work" */
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent sm:text-sm;
+    @apply inline-flex items-center gap-3 font-mono text-xs font-medium text-accent sm:text-sm;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-8 bg-current opacity-60;
+  }
+
+  /* Small metadata label (dates, categories, panel titles) */
+  .label {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-muted sm:text-xs;
   }
 
   .section-title {
-    @apply mt-2 font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl lg:text-5xl;
+    @apply mt-3 font-display text-4xl font-semibold tracking-[-0.02em] text-fg sm:text-5xl lg:text-6xl;
   }
 
   .lead {

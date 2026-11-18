@@ -62,6 +62,10 @@ import rawg from "./projects/rawg.png";
 import santander from "./projects/santander-peru.jpg";
 import transmiford from "./projects/transmiford.png";
 import banistmo from "./projects/banistmo.png";
+import disneynow from "./projects/disneynow.png";
+import ejecutapp from "./projects/ejecutapp-web.png";
+import filu from "./projects/filun2021.png";
+import polyphonic from "./projects/polyphonic.png";
 
 export {
   /** Main */
@@ -117,4 +121,8 @@ export {
   santander,
   transmiford,
   banistmo,
+  disneynow,
+  ejecutapp,
+  filu,
+  polyphonic,
 };

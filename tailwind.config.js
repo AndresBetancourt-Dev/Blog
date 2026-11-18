@@ -20,6 +20,13 @@ module.exports = {
           "system-ui",
           "sans-serif",
         ],
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace",
+        ],
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
@@ -62,6 +69,10 @@ module.exports = {
         xs: "450px",
       },
       keyframes: {
+        "hero-zoom": {
+          from: { transform: "scale(1.08)" },
+          to: { transform: "scale(1)" },
+        },
         "fade-up": {
           from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
@@ -73,6 +84,7 @@ module.exports = {
         },
       },
       animation: {
+        "hero-zoom": "hero-zoom 1.8s cubic-bezier(0.22, 1, 0.36, 1) both",
         "fade-up": "fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
         "scroll-dot": "scroll-dot 2s cubic-bezier(0.22, 1, 0.36, 1) infinite",
       },

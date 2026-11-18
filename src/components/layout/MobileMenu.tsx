@@ -194,7 +194,7 @@ const MobileMenu = ({
                           )}
                         >
                           <span className="flex items-baseline gap-3">
-                            <span className="font-sans text-xs font-medium tabular-nums text-muted">
+                            <span className="font-mono text-xs font-medium tabular-nums text-muted">
                               {String(index + 1).padStart(2, "0")}
                             </span>
                             {link.title}
@@ -215,9 +215,7 @@ const MobileMenu = ({
                 variants={itemVariants}
                 className="mt-5 border-t border-line pt-5"
               >
-                <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-                  Appearance
-                </p>
+                <p className="label mb-2 px-1">Appearance</p>
                 <ThemePicker id="mobile" showLabels className="w-full" />
               </motion.div>
 
