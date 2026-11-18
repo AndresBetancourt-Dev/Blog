@@ -1,9 +1,11 @@
 import Image, { StaticImageData } from "next/image";
+import type { Icon } from "@phosphor-icons/react";
 import { cn, readableTextOn } from "../../utils/format";
 
 interface CompanyMarkProps {
   name: string;
   logo?: StaticImageData;
+  icon?: Icon;
   brandColor: string;
   monogram: string;
   className?: string;
@@ -13,6 +15,7 @@ interface CompanyMarkProps {
 const CompanyMark = ({
   name,
   logo,
+  icon: IconComponent,
   brandColor,
   monogram,
   className,
@@ -28,8 +31,15 @@ const CompanyMark = ({
       <Image
         src={logo}
         alt={`${name} logo`}
-        className="h-[62%] w-[62%] object-contain"
+        className="h-[62%] w-[78%] object-contain"
         sizes="48px"
+      />
+    ) : IconComponent ? (
+      <IconComponent
+        size={24}
+        weight="duotone"
+        aria-hidden="true"
+        style={{ color: readableTextOn(brandColor) }}
       />
     ) : (
       <span

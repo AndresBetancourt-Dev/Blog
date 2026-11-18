@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -182,6 +183,48 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
             )}
           </aside>
         </div>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <section
+            aria-labelledby="screens-title"
+            className="container-page pb-16 sm:pb-20"
+          >
+            <Reveal>
+              <h2
+                id="screens-title"
+                className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
+              >
+                Screens
+              </h2>
+            </Reveal>
+            <motion.ul
+              variants={stagger(0.07)}
+              initial="hidden"
+              whileInView="show"
+              viewport={revealViewport}
+              className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5"
+            >
+              {project.gallery.map(({ image, caption }) => (
+                <motion.li key={caption} variants={fadeUp(0, 20)}>
+                  <figure>
+                    <div className="overflow-hidden rounded-[1.5rem] border-[6px] border-neutral-900 bg-neutral-900 shadow-card-hover ring-1 ring-line">
+                      <Image
+                        src={image}
+                        alt={`${project.name}: ${caption}`}
+                        placeholder="blur"
+                        sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 45vw"
+                        className="h-auto w-full rounded-[1.1rem]"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-center text-xs leading-snug text-muted sm:text-sm">
+                      {caption}
+                    </figcaption>
+                  </figure>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </section>
+        )}
 
         <nav
           aria-label="More projects"

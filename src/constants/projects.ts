@@ -3,10 +3,17 @@ import {
   banistmo,
   disneynow,
   ejecutapp,
+  ejecutappMobile,
+  ejecutappMobileScreen1,
+  ejecutappMobileScreen2,
+  ejecutappMobileScreen3,
+  ejecutappMobileScreen4,
+  ejecutappMobileScreen5,
   filu,
   polyphonic,
   rawg,
   santander,
+  telotraigo,
   transmiford,
   ultralms,
 } from "../assets";
@@ -203,13 +210,55 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "ejecutapp-mobile",
+    name: "Ejecutapp Mobile",
+    tagline:
+      "Cognitive games for the psychometric analysis of children aged 6–13.",
+    summary:
+      "React Native app of cognitive games for the psychometric analysis of children aged 6–13, by Universidad Santiago de Cali and Universidad de las Américas.",
+    overview: [
+      "Ejecutapp is an academic app for the psychometric analysis of children between 6 and 13 years old. The analysis is based on how a child interacts with the device while completing a series of cognitive activities that assess abilities such as memory and attention.",
+      "It's a joint effort between Universidad Santiago de Cali (Colombia) and Universidad de las Américas (Chile), published on Google Play and backed by a web service that collects the data — managed through Ejecutapp Web.",
+    ],
+    contributions: [
+      "Built the React Native app and its gallery of cognitive games: Go/NoGo, The Bivalent Shape, Froggy, Shifting Atencional and Globitos Creativos.",
+      "Captured how each child interacts with the device during the activities — the basis of the psychometric analysis.",
+      "Developed the Node.js, Express and MongoDB web service that collects the session data.",
+      "Supported both evaluator sign-in and guest play.",
+    ],
+    role: "Frontend Web Developer",
+    company: "Universidad Santiago de Cali",
+    period: "2020 – 2021",
+    category: "EdTech",
+    technologies: ["ReactNative", "JS", "React", "Node", "Express", "MongoDB"],
+    image: ejecutappMobile,
+    frame: "device",
+    gallery: [
+      {
+        image: ejecutappMobileScreen1,
+        caption: "Welcome — sign in or play as a guest",
+      },
+      { image: ejecutappMobileScreen2, caption: "Froggy — instructions" },
+      { image: ejecutappMobileScreen3, caption: "Froggy — memory sequence" },
+      {
+        image: ejecutappMobileScreen4,
+        caption: "Go/NoGo — tap only for the flower",
+      },
+      { image: ejecutappMobileScreen5, caption: "The Bivalent Shape" },
+    ],
+    accent: ["#6d28d9", "#4c1d95"],
+    link: "https://play.google.com/store/apps/details?id=com.gamesstackusc",
+    linkLabel: "Get it on Google Play",
+    featured: true,
+  },
+  {
     slug: "ejecutapp-web",
     name: "Ejecutapp Web",
     tagline: "The administration console for Ejecutapp Mobile.",
     summary:
       "Administration web app for Ejecutapp Mobile, built with React, React Router, Context, Firebase Auth, Express and MongoDB.",
     overview: [
-      "Ejecutapp Web is the administration application for Ejecutapp Mobile — a product of an alliance between Universidad Santiago de Cali and Universidad de las Américas.",
+      "Ejecutapp Web is the administration application for Ejecutapp Mobile, the cognitive-games app for children — a product of an alliance between Universidad Santiago de Cali and Universidad de las Américas.",
       "It pairs a React front end — React Router for navigation and the Context API for shared state — with an Express and MongoDB back end, using Firebase Authentication for sign-in.",
     ],
     contributions: [
@@ -257,6 +306,32 @@ export const projects: Project[] = [
     accent: ["#7c3aed", "#db2777"],
   },
   {
+    slug: "telotraigo",
+    name: "Te lo traigo",
+    tagline: "An international shopping and shipping service for Colombia.",
+    summary:
+      "Next.js site for an international shopping and shipping agent: account sign-up, order tracking, a shipping calculator and a WhatsApp personal shopper.",
+    overview: [
+      "Te lo traigo is more than an international mailbox: it's a personal shopper that finds, buys and ships products from international stores such as eBay, Costco, Walmart, Best Buy, adidas and Apple to customers in Colombia.",
+      "As a freelance project, I built the website with Next.js and React. It gives customers one place to open an account, track their orders, estimate shipping costs and reach a personal shopper.",
+    ],
+    contributions: [
+      "Built the website with Next.js and React, including the hero carousel, service highlights and recommended stores.",
+      "Created the entry points to open an account, sign in, track orders and calculate shipping costs.",
+      "Added a WhatsApp shortcut so customers can reach a personal shopper directly.",
+      "Deployed the site on Vercel.",
+    ],
+    role: "Freelance Software Developer",
+    company: "Freelance",
+    client: "Te lo traigo",
+    period: "Freelance project",
+    category: "E-commerce",
+    technologies: ["NextJS", "React", "JS", "CSS"],
+    image: telotraigo,
+    accent: ["#86198f", "#4a044e"],
+    link: "https://www.telotraigo.com/",
+  },
+  {
     slug: "transmiford",
     name: "Transmiford",
     tagline: "An online store for a truck-parts retailer in Bogotá.",
@@ -288,7 +363,6 @@ export const projects: Project[] = [
     image: transmiford,
     accent: ["#1e40af", "#0f172a"],
     link: "https://transmiford.com",
-    featured: true,
   },
   {
     slug: "rawg-games",

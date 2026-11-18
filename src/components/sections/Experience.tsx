@@ -55,6 +55,7 @@ const ExperienceItem = ({ experience }: { experience: ExperienceModel }) => {
         <CompanyMark
           name={experience.company}
           logo={experience.logo}
+          icon={experience.icon}
           brandColor={experience.brandColor}
           monogram={experience.monogram}
           className="absolute left-0 top-0 ring-4 ring-bg"

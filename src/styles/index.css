@@ -6,21 +6,9 @@
 /*  Design tokens — values are "R G B" channels so Tailwind can apply alpha.   */
 /* -------------------------------------------------------------------------- */
 @layer base {
-  :root {
-    --bg: 248 246 252;
-    --surface: 255 255 255;
-    --surface-2: 241 237 248;
-    --line: 226 219 238;
-    --fg: 26 19 37;
-    --muted: 91 81 112;
-    --accent: 109 40 217;
-    --accent-strong: 124 58 237;
-    --on-accent: 255 255 255;
-    --brand: 220 38 38;
-    --shadow: 46 16 101;
-    color-scheme: light;
-  }
-
+  /* Dark is the default theme (independent of OS/browser settings);
+     the light palette only applies when the user picks it. */
+  :root,
   .dark {
     --bg: 14 10 28;
     --surface: 26 19 41;
@@ -34,6 +22,21 @@
     --brand: 239 68 68;
     --shadow: 0 0 0;
     color-scheme: dark;
+  }
+
+  .light {
+    --bg: 248 246 252;
+    --surface: 255 255 255;
+    --surface-2: 241 237 248;
+    --line: 226 219 238;
+    --fg: 26 19 37;
+    --muted: 91 81 112;
+    --accent: 109 40 217;
+    --accent-strong: 124 58 237;
+    --on-accent: 255 255 255;
+    --brand: 220 38 38;
+    --shadow: 46 16 101;
+    color-scheme: light;
   }
 
   html {

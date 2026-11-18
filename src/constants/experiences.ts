@@ -1,4 +1,5 @@
-import { cobis, globant, usc } from "../assets";
+import { Laptop } from "@phosphor-icons/react";
+import { cobis, epam, globant, usc } from "../assets";
 import type { Experience } from "../models/Experience";
 
 /** Ordered most recent first. Source: LinkedIn profile. */
@@ -11,7 +12,8 @@ export const experiences: Experience[] = [
     employmentType: "Full-time",
     location: "Remote",
     start: "2024-12",
-    brandColor: "#39C2D7",
+    logo: epam,
+    brandColor: "#ffffff",
     monogram: "E",
     points: [
       "Develop and maintain Polyphonic, Johnson & Johnson MedTech's digital ecosystem for surgery, with NestJS, Node.js, React, Next.js and TypeScript, built for high performance and scalability.",
@@ -125,6 +127,7 @@ export const experiences: Experience[] = [
     location: "Barcelona, Catalonia, Spain",
     start: "2020-06",
     end: "2020-12",
+    icon: Laptop,
     brandColor: "#7c3aed",
     monogram: "F",
     points: [
@@ -141,7 +144,7 @@ export const experiences: Experience[] = [
       "JS",
       "Heroku",
     ],
-    projects: ["transmiford"],
+    projects: ["transmiford", "telotraigo"],
   },
   {
     id: "usc-frontend-web-developer",
@@ -156,7 +159,7 @@ export const experiences: Experience[] = [
     monogram: "U",
     points: [
       "Developed a React Native application with JavaScript, Node.js, Express, React and MongoDB that delivers psychometric games for children, assessing cognitive abilities such as memory and attention.",
-      "Built Ejecutapp Web, the administration application for Ejecutapp Mobile.",
+      "Built Ejecutapp Web, the administration application for the Ejecutapp mobile app.",
       "Created the landing page and event calendar for the III International University Book Fair.",
       "Built and updated university websites with Joomla and WordPress.",
     ],
@@ -172,7 +175,7 @@ export const experiences: Experience[] = [
       "Joomla",
       "Wordpress",
     ],
-    projects: ["ejecutapp-web", "filu-book-fair"],
+    projects: ["ejecutapp-mobile", "ejecutapp-web", "filu-book-fair"],
   },
   {
     id: "usc-instructor",

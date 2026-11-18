@@ -34,7 +34,13 @@ export interface Project {
   imageBg?: string;
   /** Two-stop gradient used by the generated cover when there is no image. */
   accent: [string, string];
+  /** Frame used for the screenshot in the project header. */
+  frame?: "browser" | "device";
+  /** Extra screens shown in a gallery on the project page. */
+  gallery?: { image: StaticImageData; caption: string }[];
   link?: string;
+  /** Label for the primary link button. Defaults to "Visit live site". */
+  linkLabel?: string;
   sourceCode?: string;
   featured?: boolean;
   confidential?: boolean;

@@ -68,6 +68,7 @@ const ProjectHero = ({ project, crumbs }: ProjectHeroProps) => {
   const CategoryIcon = categoryIcons[project.category];
   const photo = Boolean(project.image) && project.imageFit !== "contain";
   const logo = Boolean(project.image) && project.imageFit === "contain";
+  const device = project.frame === "device";
 
   return (
     <header
@@ -183,7 +184,7 @@ const ProjectHero = ({ project, crumbs }: ProjectHeroProps) => {
                     rel="noopener noreferrer"
                     className="btn-primary"
                   >
-                    Visit live site
+                    {project.linkLabel ?? "Visit live site"}
                     <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
                     <span className="sr-only">(opens in a new tab)</span>
                   </a>
@@ -209,22 +210,32 @@ const ProjectHero = ({ project, crumbs }: ProjectHeroProps) => {
               className="animate-fade-up [perspective:1600px]"
               style={{ animationDelay: "200ms" }}
             >
-              <div className="overflow-hidden rounded-2xl border border-white/15 bg-black/40 shadow-[0_40px_100px_-30px_rgb(0_0_0/0.75)] ring-1 ring-black/20 transition-transform duration-700 ease-out-expo lg:[transform:rotateY(-9deg)_rotateX(3deg)] lg:hover:[transform:rotateY(0deg)_rotateX(0deg)]">
-                <div
-                  aria-hidden="true"
-                  className="flex h-7 items-center gap-1.5 border-b border-white/10 bg-white/5 px-3"
-                >
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                </div>
+              <div
+                className={`overflow-hidden shadow-[0_40px_100px_-30px_rgb(0_0_0/0.75)] transition-transform duration-700 ease-out-expo lg:[transform:rotateY(-9deg)_rotateX(3deg)] lg:hover:[transform:rotateY(0deg)_rotateX(0deg)] ${
+                  device
+                    ? "rounded-[1.75rem] border-[10px] border-neutral-900 bg-neutral-900 ring-1 ring-white/15"
+                    : "rounded-2xl border border-white/15 bg-black/40 ring-1 ring-black/20"
+                }`}
+              >
+                {!device && (
+                  <div
+                    aria-hidden="true"
+                    className="flex h-7 items-center gap-1.5 border-b border-white/10 bg-white/5 px-3"
+                  >
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                  </div>
+                )}
                 <Image
                   src={project.image}
                   alt={`Screenshot of ${project.name}`}
                   priority
                   placeholder="blur"
                   sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, 100vw"
-                  className="h-auto w-full"
+                  className={`h-auto w-full ${
+                    device ? "rounded-[1.1rem]" : ""
+                  }`}
                 />
               </div>
             </div>

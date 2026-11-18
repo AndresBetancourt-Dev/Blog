@@ -25,6 +25,19 @@ import {
   wordpress,
   woocommerce,
   elementor,
+  cplusplus,
+  materialui,
+  angularjs,
+  reactrouter,
+  nestjs,
+  ffmpeg,
+  firebase,
+  aws,
+  azure,
+  heroku,
+  testinglibrary,
+  joomla,
+  payu,
 } from "../assets";
 import type { Technology, TechCategory } from "../models/Technology";
 
@@ -35,7 +48,7 @@ export const technologies = {
   Java: { name: "Java", category: "Languages", icon: java, darkArtwork: true },
   HTML: { name: "HTML5", category: "Languages", icon: html },
   CSS: { name: "CSS3", category: "Languages", icon: css },
-  Cpp: { name: "C / C++", category: "Languages" },
+  Cpp: { name: "C / C++", category: "Languages", icon: cplusplus },
 
   /* Frontend */
   React: { name: "React", category: "Frontend", icon: reactjs },
@@ -55,9 +68,14 @@ export const technologies = {
     icon: styledcomponents,
     darkArtwork: true,
   },
-  MaterialUI: { name: "Material UI", category: "Frontend" },
-  AngularJS: { name: "AngularJS", category: "Frontend" },
-  ReactRouter: { name: "React Router", category: "Frontend" },
+  MaterialUI: { name: "Material UI", category: "Frontend", icon: materialui },
+  AngularJS: { name: "AngularJS", category: "Frontend", icon: angularjs },
+  ReactRouter: {
+    name: "React Router",
+    category: "Frontend",
+    icon: reactrouter,
+    darkArtwork: true,
+  },
   ThreeJS: {
     name: "Three.js",
     category: "Frontend",
@@ -67,14 +85,14 @@ export const technologies = {
 
   /* Backend */
   Node: { name: "Node.js", category: "Backend", icon: nodejs },
-  NestJS: { name: "NestJS", category: "Backend" },
+  NestJS: { name: "NestJS", category: "Backend", icon: nestjs },
   Express: {
     name: "Express",
     category: "Backend",
     icon: express,
     darkArtwork: true,
   },
-  FFmpeg: { name: "FFmpeg", category: "Backend" },
+  FFmpeg: { name: "FFmpeg", category: "Backend", icon: ffmpeg },
 
   /* Data */
   PostgreSQL: { name: "PostgreSQL", category: "Data", icon: postgresql },
@@ -91,18 +109,27 @@ export const technologies = {
     darkArtwork: true,
   },
   MongoDB: { name: "MongoDB", category: "Data", icon: mongodb },
-  Firebase: { name: "Firebase", category: "Data" },
+  Firebase: { name: "Firebase", category: "Data", icon: firebase },
 
   /* Cloud & DevOps */
-  AWS: { name: "AWS", category: "Cloud & DevOps" },
-  Azure: { name: "Azure", category: "Cloud & DevOps" },
+  AWS: {
+    name: "AWS",
+    category: "Cloud & DevOps",
+    icon: aws,
+    darkArtwork: true,
+  },
+  Azure: { name: "Azure", category: "Cloud & DevOps", icon: azure },
   Docker: { name: "Docker", category: "Cloud & DevOps", icon: docker },
-  Heroku: { name: "Heroku", category: "Cloud & DevOps" },
+  Heroku: { name: "Heroku", category: "Cloud & DevOps", icon: heroku },
 
   /* Tooling */
   Git: { name: "Git & GitHub", category: "Tooling", icon: git },
   Figma: { name: "Figma", category: "Tooling", icon: figma },
-  TestingLibrary: { name: "Testing Library", category: "Tooling" },
+  TestingLibrary: {
+    name: "Testing Library",
+    category: "Tooling",
+    icon: testinglibrary,
+  },
 
   /* CMS & E-commerce */
   Wordpress: {
@@ -120,8 +147,8 @@ export const technologies = {
     category: "CMS & E-commerce",
     icon: elementor,
   },
-  Joomla: { name: "Joomla", category: "CMS & E-commerce" },
-  PayU: { name: "PayU", category: "CMS & E-commerce" },
+  Joomla: { name: "Joomla", category: "CMS & E-commerce", icon: joomla },
+  PayU: { name: "PayU", category: "CMS & E-commerce", icon: payu },
 } satisfies Record<string, Technology>;
 
 export type TechKey = keyof typeof technologies;

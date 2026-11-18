@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import type { Icon } from "@phosphor-icons/react";
 import type { TechKey } from "../constants/technologies";
 
 export interface Experience {
@@ -16,6 +17,8 @@ export interface Experience {
   /** ISO year-month; omit for a current role. */
   end?: string;
   logo?: StaticImageData;
+  /** Icon used when there is no company logo (e.g. freelance work). */
+  icon?: Icon;
   /** Brand color used for the logo well / monogram fallback. */
   brandColor: string;
   monogram: string;
