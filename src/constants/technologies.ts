@@ -38,6 +38,9 @@ import {
   testinglibrary,
   joomla,
   payu,
+  formik,
+  googleanalytics,
+  vercel,
 } from "../assets";
 import type { Technology, TechCategory } from "../models/Technology";
 
@@ -74,6 +77,12 @@ export const technologies = {
     name: "React Router",
     category: "Frontend",
     icon: reactrouter,
+    darkArtwork: true,
+  },
+  Formik: {
+    name: "Formik + Yup",
+    category: "Frontend",
+    icon: formik,
     darkArtwork: true,
   },
   ThreeJS: {
@@ -120,11 +129,22 @@ export const technologies = {
   },
   Azure: { name: "Azure", category: "Cloud & DevOps", icon: azure },
   Docker: { name: "Docker", category: "Cloud & DevOps", icon: docker },
+  Vercel: {
+    name: "Vercel",
+    category: "Cloud & DevOps",
+    icon: vercel,
+    darkArtwork: true,
+  },
   Heroku: { name: "Heroku", category: "Cloud & DevOps", icon: heroku },
 
   /* Tooling */
   Git: { name: "Git & GitHub", category: "Tooling", icon: git },
   Figma: { name: "Figma", category: "Tooling", icon: figma },
+  GoogleAnalytics: {
+    name: "Google Analytics",
+    category: "Tooling",
+    icon: googleanalytics,
+  },
   TestingLibrary: {
     name: "Testing Library",
     category: "Tooling",

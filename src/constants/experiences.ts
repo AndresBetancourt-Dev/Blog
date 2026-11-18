@@ -144,7 +144,7 @@ export const experiences: Experience[] = [
       "JS",
       "Heroku",
     ],
-    projects: ["transmiford", "telotraigo"],
+    projects: ["transmiford"],
   },
   {
     id: "usc-frontend-web-developer",

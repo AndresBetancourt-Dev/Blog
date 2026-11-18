@@ -1,3 +1,7 @@
+/** Env value → default when unset, `undefined` when explicitly "none". */
+const optionalEnv = (value: string | undefined, fallback: string) =>
+  value === "none" ? undefined : value?.trim() || fallback;
+
 /**
  * Global site configuration — the single source of truth for identity, SEO
  * and social links. Optional links are only rendered when they are set.
@@ -28,10 +32,16 @@ export const SITE = {
   ],
   social: {
     github: "https://github.com/AndresBetancourt-Dev",
-    /** Set NEXT_PUBLIC_LINKEDIN_URL (or edit this value) to show LinkedIn links. */
-    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || undefined,
-    /** Set NEXT_PUBLIC_CONTACT_EMAIL to show a public contact email. */
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || undefined,
+    /** Override with NEXT_PUBLIC_LINKEDIN_URL; set it to "none" to hide. */
+    linkedin: optionalEnv(
+      process.env.NEXT_PUBLIC_LINKEDIN_URL,
+      "https://www.linkedin.com/in/andres-betancourth/",
+    ),
+    /** Override with NEXT_PUBLIC_CONTACT_EMAIL; set it to "none" to hide. */
+    email: optionalEnv(
+      process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+      "contacto.betancourth@gmail.com",
+    ),
   },
 } as const;
 

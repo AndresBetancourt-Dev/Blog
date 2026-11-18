@@ -2,14 +2,6 @@
  * Main
  */
 import logo from "./logo.png";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
-import github from "./github.png";
-import browser from "./windows.png";
-import menu from "./menu.svg";
-import close from "./close.svg";
 
 /**
  * Technologies
@@ -53,14 +45,13 @@ import heroku from "./tech/heroku.svg";
 import testinglibrary from "./tech/testinglibrary.svg";
 import joomla from "./tech/joomla.svg";
 import payu from "./tech/payu.svg";
+import formik from "./tech/formik.svg";
+import googleanalytics from "./tech/googleanalytics.svg";
+import vercel from "./tech/vercel.svg";
 
 /**
  * Companies
  */
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 import globant from "./company/globant.png";
 import anthology from "./company/anthology.png";
 import cobis from "./company/cobis.png";
@@ -91,14 +82,6 @@ import ejecutappMobileScreen5 from "./projects/ejecutapp-mobile/screen-5.jpg";
 export {
   /** Main */
   logo,
-  backend,
-  creator,
-  mobile,
-  web,
-  github,
-  browser,
-  menu,
-  close,
   /** Technologies */
   css,
   docker,
@@ -139,11 +122,10 @@ export {
   testinglibrary,
   joomla,
   payu,
+  formik,
+  googleanalytics,
+  vercel,
   /** Companies */
-  meta,
-  shopify,
-  starbucks,
-  tesla,
   globant,
   anthology,
   cobis,

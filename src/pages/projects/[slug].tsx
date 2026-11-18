@@ -77,7 +77,13 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ slug }) => {
   ];
   const socialImage = ogImageUrl(
     project.name,
-    `${project.category} · ${project.client ?? project.company}`,
+    `${project.category} · ${(project.client ?? project.company).replace(
+      `${project.name} · `,
+      "",
+    )}`,
+    project.image && project.imageFit !== "contain"
+      ? project.image.src
+      : undefined,
   );
   const coverImage = project.image
     ? absoluteUrl(project.image.src)

@@ -71,11 +71,35 @@ const ContactCta = ({
                 <span className="sr-only">(opens in a new tab)</span>
               )}
             </a>
-            <Link href="/projects" className="btn-on-media">
-              Browse projects
-              <ArrowRight size={16} weight="bold" aria-hidden="true" />
-            </Link>
+            {SITE.social.email && SITE.social.linkedin ? (
+              <a
+                href={SITE.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-on-media"
+              >
+                <LinkedinLogo size={18} aria-hidden="true" />
+                Connect on LinkedIn
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            ) : (
+              <Link href="/projects" className="btn-on-media">
+                Browse projects
+                <ArrowRight size={16} weight="bold" aria-hidden="true" />
+              </Link>
+            )}
           </div>
+          {SITE.social.email && (
+            <p className="mt-6 text-sm text-white/60">
+              or write to{" "}
+              <a
+                href={`mailto:${SITE.social.email}`}
+                className="font-medium text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
+              >
+                {SITE.social.email}
+              </a>
+            </p>
+          )}
         </Reveal>
       </div>
     </section>

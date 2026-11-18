@@ -69,6 +69,18 @@ module.exports = {
         xs: "450px",
       },
       keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0) rotate(-6deg)" },
+          "50%": { transform: "translateY(-14px) rotate(-3deg)" },
+        },
+        orbit: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        twinkle: {
+          "0%, 100%": { opacity: "0.35" },
+          "50%": { opacity: "1" },
+        },
         "hero-zoom": {
           from: { transform: "scale(1.08)" },
           to: { transform: "scale(1)" },
@@ -84,6 +96,9 @@ module.exports = {
         },
       },
       animation: {
+        float: "float 7s ease-in-out infinite",
+        orbit: "orbit 14s linear infinite",
+        twinkle: "twinkle 4s ease-in-out infinite",
         "hero-zoom": "hero-zoom 1.8s cubic-bezier(0.22, 1, 0.36, 1) both",
         "fade-up": "fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
         "scroll-dot": "scroll-dot 2s cubic-bezier(0.22, 1, 0.36, 1) infinite",

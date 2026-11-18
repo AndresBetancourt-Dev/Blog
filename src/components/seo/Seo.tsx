@@ -18,9 +18,15 @@ interface SeoProps {
   jsonLd?: JsonLd | JsonLd[];
 }
 
-export const ogImageUrl = (title: string, subtitle?: string) => {
+export const ogImageUrl = (
+  title: string,
+  subtitle?: string,
+  /** Path of a static image (e.g. a project screenshot) to feature. */
+  image?: string,
+) => {
   const params = new URLSearchParams({ title });
   if (subtitle) params.set("subtitle", subtitle);
+  if (image) params.set("image", image);
   return absoluteUrl(`/api/og?${params.toString()}`);
 };
 

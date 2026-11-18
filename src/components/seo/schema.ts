@@ -15,6 +15,7 @@ export const personSchema = () => ({
   worksFor: { "@type": "Organization", name: SITE.currentCompany },
   address: { "@type": "PostalAddress", addressCountry: "CO" },
   sameAs,
+  ...(SITE.social.email && { email: `mailto:${SITE.social.email}` }),
   knowsAbout: [
     "React",
     "Next.js",

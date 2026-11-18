@@ -1,46 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Andrés Betancourt — Portfolio
 
-## Getting Started
+Personal portfolio of Andrés Betancourt, Senior Software Engineer. It showcases professional experience, case studies for each project and the technologies behind them.
 
-First, run the development server:
+**Live:** https://andresbetancourt-dev.vercel.app
+
+## Features
+
+- **Case studies** — every project gets a statically generated page at `/projects/[slug]` with an image-driven header, overview, contributions, tech stack, screen gallery and related projects.
+- **Filterable project index** at `/projects`, with the active filter kept in the URL (`?category=Banking`).
+- **Experience timeline** with company logos, durations and links to the related projects.
+- **Dark theme by default**, with a Light / Dark / System picker and a circular reveal transition (View Transitions API).
+- **Animated mobile menu** — blurred backdrop, circular expand, focus trap, Escape to close and scroll lock.
+- **SEO** — per-page titles, descriptions and canonical URLs, Open Graph/Twitter cards, JSON-LD (Person, WebSite, BreadcrumbList, CreativeWork, CollectionPage), dynamic share images, `sitemap.xml` and `robots.txt`.
+- **Accessibility** — skip link, visible focus states, semantic landmarks, focus moved to content on navigation and `prefers-reduced-motion` support.
+- **PWA** support through `@ducanh2912/next-pwa`.
+
+## Tech stack
+
+| Area      | Tools                                              |
+| --------- | -------------------------------------------------- |
+| Framework | Next.js 15 (Pages Router), React 18, TypeScript 5  |
+| Styling   | Tailwind CSS 3 with CSS-variable design tokens     |
+| Motion    | Framer Motion 11, CSS keyframes                    |
+| Theming   | next-themes                                        |
+| Icons     | Phosphor Icons                                     |
+| Fonts     | Outfit, Figtree and JetBrains Mono via `next/font` |
+| Quality   | ESLint 9 (flat config), Prettier, Husky            |
+| Hosting   | Vercel                                             |
+
+## Getting started
+
+Requirements: Node.js 20.9 or newer (see `.nvmrc`) and npm.
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+cp .env.example .env.local   # optional — sensible defaults are built in
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+| Script              | Description                  |
+| ------------------- | ---------------------------- |
+| `npm run dev`       | Start the development server |
+| `npm run build`     | Create a production build    |
+| `npm run start`     | Serve the production build   |
+| `npm run lint`      | Lint with ESLint             |
+| `npm run typecheck` | Type-check with TypeScript   |
+| `npm run prettier`  | Format the codebase          |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Git hooks: `pre-commit` formats and lints, `pre-push` runs a production build.
 
 ## Configuration
 
-Set these environment variables (e.g. in Vercel → Project → Settings → Environment Variables):
+All variables are public (`NEXT_PUBLIC_*`) and optional — see [`.env.example`](.env.example). On Vercel, add them under **Project → Settings → Environment Variables**.
 
-| Variable                    | Purpose                                                                                                                                    |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `NEXT_PUBLIC_SITE_URL`      | Canonical URL used for SEO (canonical links, Open Graph, sitemap). Falls back to Vercel's production domain, then `http://localhost:3000`. |
-| `NEXT_PUBLIC_LINKEDIN_URL`  | Shows LinkedIn links in the hero, menu, footer and contact section.                                                                        |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional public email for the contact button.                                                                                              |
+| Variable                    | Purpose                                                                                                          |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`      | Canonical URL for SEO. Falls back to Vercel's production domain, then `https://andresbetancourt-dev.vercel.app`. |
+| `NEXT_PUBLIC_LINKEDIN_URL`  | LinkedIn profile link. Set to `none` to hide it.                                                                 |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Public contact email. Set to `none` to hide it.                                                                  |
+| `ANALYZE`                   | Set to `true` to open the bundle analyzer after a build.                                                         |
 
-Content lives in `src/constants/` (`projects.ts`, `experiences.ts`, `technologies.ts`, `site.ts`). Each project automatically gets a statically generated page at `/projects/[slug]`, a sitemap entry and a generated Open Graph image (`/api/og`).
+## Editing content
 
-## Learn More
+Content lives in plain TypeScript files in `src/constants/`:
 
-To learn more about Next.js, take a look at the following resources:
+| File              | What it holds                                          |
+| ----------------- | ------------------------------------------------------ |
+| `site.ts`         | Name, role, SEO description, keywords and social links |
+| `projects.ts`     | Projects and case-study content                        |
+| `experiences.ts`  | Work experience timeline                               |
+| `technologies.ts` | Skills, their categories and logos                     |
+| `navigation.ts`   | Navigation links                                       |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Add a project:** put its screenshot in `src/assets/projects/`, export it from `src/assets/index.ts` and add an entry to `projects.ts`. The case-study page, project card, sitemap entry and share image are generated automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Add a skill:** put its logo in `src/assets/tech/`, export it from `src/assets/index.ts` and add it to `technologies.ts`. Set `darkArtwork: true` for dark logos that need a light backing in dark mode.
 
-## Deploy on Vercel
+## Project structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── assets/          # Images, logos and fonts
+├── components/
+│   ├── layout/      # Navbar, mobile menu, footer
+│   ├── projects/    # Project card, cover, grid and case-study header
+│   ├── sections/    # Home page sections
+│   ├── seo/         # <Seo> component and JSON-LD helpers
+│   └── ui/          # Shared primitives (Section, Reveal, ThemePicker, …)
+├── constants/       # Site content (see "Editing content")
+├── layout/          # App shell (skip link, page transition, focus handling)
+├── models/          # TypeScript types for the content
+├── pages/           # Routes, plus sitemap.xml, robots.txt and /api/og
+├── styles/          # Global CSS and design tokens
+└── utils/           # Motion tokens and formatting helpers
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Credits
+
+- Technology logos: [Devicon](https://devicon.dev) (MIT), [Simple Icons](https://simpleicons.org) (CC0) and Wikimedia Commons (public domain). All trademarks belong to their owners.
+- Outfit font: [SIL Open Font License](src/assets/fonts/OFL-Outfit.txt).

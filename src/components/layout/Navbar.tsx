@@ -33,7 +33,10 @@ const Navbar = () => {
     : null;
 
   /** Pages that open with a full-bleed image hero under the navbar. */
-  const hasMediaHero = isHome || router.pathname === "/projects/[slug]";
+  const hasMediaHero =
+    isHome ||
+    router.pathname === "/projects/[slug]" ||
+    router.pathname === "/404";
   /** Light-on-dark styling while floating over that hero image. */
   const onMedia = hasMediaHero && !scrolled && !open;
   const solid = scrolled && !open;

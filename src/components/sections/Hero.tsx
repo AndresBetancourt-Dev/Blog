@@ -10,7 +10,12 @@ const FIRST_ROLE_YEAR = 2020;
 const Hero = () => {
   const years = new Date().getFullYear() - FIRST_ROLE_YEAR;
   const current = experiences[0];
-  const industries = new Set(projects.map((project) => project.category)).size;
+  // "Web" is a project type, not an industry.
+  const industries = new Set(
+    projects
+      .map((project) => project.category)
+      .filter((category) => category !== "Web"),
+  ).size;
 
   const stats = [
     { value: `${years}+`, label: "years shipping software" },
