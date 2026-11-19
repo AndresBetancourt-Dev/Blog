@@ -65,7 +65,9 @@ const Hero = () => {
             style={{ animationDelay: "140ms" }}
           >
             {SITE.name.split(" ")[0]}{" "}
-            <span className="text-violet-300">{SITE.name.split(" ")[1]}</span>
+            <span className="text-brand shadow-black/50 text-shadow-lg">
+              {SITE.name.split(" ")[1]}
+            </span>
           </h1>
 
           <p

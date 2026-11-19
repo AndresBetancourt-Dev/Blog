@@ -45,7 +45,7 @@ const ContactCta = ({
             aria-hidden="true"
             className="absolute inset-0 -z-10 bg-[radial-gradient(60%_80%_at_20%_0%,rgb(124_58_237/0.45),transparent),radial-gradient(50%_70%_at_90%_100%,rgb(225_29_72/0.35),transparent)]"
           />
-          <p className="font-mono text-xs font-medium text-violet-200 sm:text-sm">
+          <p className="font-mono text-xs font-medium text-red-200 sm:text-sm">
             Open to new opportunities
           </p>
           <h2

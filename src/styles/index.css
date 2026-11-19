@@ -16,10 +16,10 @@
     --line: 52 41 74;
     --fg: 243 241 248;
     --muted: 184 176 200;
-    --accent: 196 181 253;
-    --accent-strong: 124 58 237;
+    --accent: 248 113 113;
+    --accent-strong: 218 31 38; /* logo red #da1f26 */
     --on-accent: 255 255 255;
-    --brand: 239 68 68;
+    --brand: 218 31 38;
     --shadow: 0 0 0;
     color-scheme: dark;
   }
@@ -31,10 +31,10 @@
     --line: 226 219 238;
     --fg: 26 19 37;
     --muted: 91 81 112;
-    --accent: 109 40 217;
-    --accent-strong: 124 58 237;
+    --accent: 185 28 28;
+    --accent-strong: 218 31 38; /* logo red #da1f26 */
     --on-accent: 255 255 255;
-    --brand: 220 38 38;
+    --brand: 218 31 38;
     --shadow: 46 16 101;
     color-scheme: light;
   }
@@ -136,10 +136,6 @@
 
   .card {
     @apply rounded-2xl border border-line bg-surface shadow-card;
-  }
-
-  .gradient-text {
-    @apply bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent;
   }
 }
 

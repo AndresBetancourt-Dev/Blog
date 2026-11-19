@@ -104,7 +104,7 @@ export default async function handler(request: NextRequest) {
               {title}
             </div>
             <div
-              style={{ display: "flex", fontSize: "30px", color: "#c4b5fd" }}
+              style={{ display: "flex", fontSize: "30px", color: "#fca5a5" }}
             >
               {subtitle}
             </div>
