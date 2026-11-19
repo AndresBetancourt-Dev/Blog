@@ -21,7 +21,8 @@ interface MobileMenuProps {
   toggleRef: RefObject<HTMLButtonElement>;
 }
 
-const PANEL_INSET = 12;
+/** The panel is a full-width sheet anchored to the top edge. */
+const PANEL_INSET = 0;
 const FOCUSABLE =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -141,106 +142,109 @@ const MobileMenu = ({
   ];
 
   return (
-    <AnimatePresence>
-      {open && (
-        <>
-          <motion.div
-            key="menu-backdrop"
-            aria-hidden="true"
-            onClick={onClose}
-            className="fixed inset-0 z-overlay bg-bg/50 md:hidden"
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{
-              opacity: 1,
-              backdropFilter: "blur(16px)",
-              transition: { duration: 0.35, ease: easeOut },
-            }}
-            exit={{
-              opacity: 0,
-              backdropFilter: "blur(0px)",
-              transition: { duration: 0.25, ease: easeIn },
-            }}
-          />
-          <motion.div
-            key="menu-panel"
-            id={id}
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site menu"
-            className="fixed inset-x-3 top-3 z-menu max-h-[calc(100dvh-24px)] overflow-y-auto overscroll-contain rounded-3xl border border-line bg-surface/95 shadow-card-hover backdrop-blur-2xl md:hidden"
-            {...panelMotion}
-          >
+    // Safety net: while closed, nothing left mid-exit can intercept taps.
+    <div className={open ? undefined : "[&>*]:pointer-events-none"}>
+      <AnimatePresence>
+        {open && (
+          <>
             <motion.div
-              variants={listVariants}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="px-4 pb-5 pt-20 sm:pt-24"
+              key="menu-backdrop"
+              aria-hidden="true"
+              onClick={onClose}
+              className="fixed inset-0 z-overlay bg-bg/50 md:hidden"
+              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              animate={{
+                opacity: 1,
+                backdropFilter: "blur(16px)",
+                transition: { duration: 0.35, ease: easeOut },
+              }}
+              exit={{
+                opacity: 0,
+                backdropFilter: "blur(0px)",
+                transition: { duration: 0.25, ease: easeIn },
+              }}
+            />
+            <motion.div
+              key="menu-panel"
+              id={id}
+              ref={panelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Site menu"
+              className="fixed inset-x-0 top-0 z-menu max-h-[100dvh] overflow-y-auto overscroll-contain rounded-b-3xl border-b border-line bg-surface/95 shadow-card-hover backdrop-blur-2xl md:hidden"
+              {...panelMotion}
             >
-              <nav aria-label="Mobile">
-                <ul className="flex flex-col gap-1">
-                  {navLinks.map((link, index) => {
-                    const active = activeId === link.id;
-                    return (
-                      <motion.li key={link.id} variants={itemVariants}>
-                        <Link
-                          href={link.href}
-                          onClick={onClose}
-                          aria-current={active ? "page" : undefined}
-                          className={cn(
-                            "group flex min-h-[56px] items-center justify-between rounded-2xl px-3 py-2 font-display text-2xl font-semibold transition-colors duration-200 hover:bg-surface-2",
-                            active ? "text-accent" : "text-fg",
-                          )}
-                        >
-                          <span className="flex items-baseline gap-3">
-                            <span className="font-mono text-xs font-medium tabular-nums text-muted">
-                              {String(index + 1).padStart(2, "0")}
+              <motion.div
+                variants={listVariants}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                className="px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-20 sm:px-8 sm:pt-24"
+              >
+                <nav aria-label="Mobile">
+                  <ul className="-mx-3 flex flex-col gap-1">
+                    {navLinks.map((link, index) => {
+                      const active = activeId === link.id;
+                      return (
+                        <motion.li key={link.id} variants={itemVariants}>
+                          <Link
+                            href={link.href}
+                            onClick={onClose}
+                            aria-current={active ? "page" : undefined}
+                            className={cn(
+                              "group flex min-h-[56px] items-center justify-between rounded-2xl px-3 py-2 font-display text-2xl font-semibold transition-colors duration-200 hover:bg-surface-2",
+                              active ? "text-accent" : "text-fg",
+                            )}
+                          >
+                            <span className="flex items-baseline gap-3">
+                              <span className="font-mono text-xs font-medium tabular-nums text-muted">
+                                {String(index + 1).padStart(2, "0")}
+                              </span>
+                              {link.title}
                             </span>
-                            {link.title}
-                          </span>
-                          <ArrowRight
-                            size={20}
-                            aria-hidden="true"
-                            className="text-muted transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent"
-                          />
-                        </Link>
-                      </motion.li>
-                    );
-                  })}
-                </ul>
-              </nav>
+                            <ArrowRight
+                              size={20}
+                              aria-hidden="true"
+                              className="text-muted transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent"
+                            />
+                          </Link>
+                        </motion.li>
+                      );
+                    })}
+                  </ul>
+                </nav>
 
-              <motion.div
-                variants={itemVariants}
-                className="mt-5 border-t border-line pt-5"
-              >
-                <p className="label mb-2 px-1">Appearance</p>
-                <ThemePicker id="mobile" showLabels className="w-full" />
-              </motion.div>
+                <motion.div
+                  variants={itemVariants}
+                  className="mt-5 border-t border-line pt-5"
+                >
+                  <p className="label mb-2 px-1">Appearance</p>
+                  <ThemePicker id="mobile" showLabels className="w-full" />
+                </motion.div>
 
-              <motion.div
-                variants={itemVariants}
-                className="mt-4 grid grid-cols-2 gap-2"
-              >
-                {socials.map(({ href, label, icon: Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith("mailto") ? undefined : "_blank"}
-                    rel="noopener noreferrer"
-                    className="btn-ghost w-full"
-                  >
-                    <Icon size={18} aria-hidden="true" />
-                    {label}
-                  </a>
-                ))}
+                <motion.div
+                  variants={itemVariants}
+                  className="mt-4 grid grid-cols-2 gap-2"
+                >
+                  {socials.map(({ href, label, icon: Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target={href.startsWith("mailto") ? undefined : "_blank"}
+                      rel="noopener noreferrer"
+                      className="btn-ghost w-full"
+                    >
+                      <Icon size={18} aria-hidden="true" />
+                      {label}
+                    </a>
+                  ))}
+                </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

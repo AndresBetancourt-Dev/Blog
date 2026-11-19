@@ -79,7 +79,7 @@ const Hero = () => {
           </p>
 
           <div
-            className="mt-8 flex animate-fade-up flex-wrap items-center gap-3"
+            className="mt-8 flex animate-fade-up flex-wrap items-center gap-x-2.5 gap-y-3 sm:gap-3"
             style={{ animationDelay: "300ms" }}
           >
             <Link href="/projects" className="btn-primary">
@@ -89,26 +89,29 @@ const Hero = () => {
             <Link href="/#work" className="btn-on-media">
               Experience
             </Link>
-            <a
-              href={SITE.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile (opens in a new tab)"
-              className="btn-on-media w-11 px-0"
-            >
-              <GithubLogo size={20} aria-hidden="true" />
-            </a>
-            {SITE.social.linkedin && (
+            {/* Social links wrap together: own row below 424px, inline above. */}
+            <div className="flex items-center gap-2.5 max-[423px]:basis-full sm:gap-3">
               <a
-                href={SITE.social.linkedin}
+                href={SITE.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn profile (opens in a new tab)"
+                aria-label="GitHub profile (opens in a new tab)"
                 className="btn-on-media w-11 px-0"
               >
-                <LinkedinLogo size={20} aria-hidden="true" />
+                <GithubLogo size={20} aria-hidden="true" />
               </a>
-            )}
+              {SITE.social.linkedin && (
+                <a
+                  href={SITE.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile (opens in a new tab)"
+                  className="btn-on-media w-11 px-0"
+                >
+                  <LinkedinLogo size={20} aria-hidden="true" />
+                </a>
+              )}
+            </div>
           </div>
 
           <dl

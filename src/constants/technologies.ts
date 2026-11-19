@@ -41,6 +41,7 @@ import {
   formik,
   googleanalytics,
   vercel,
+  resend,
 } from "../assets";
 import type { Technology, TechCategory } from "../models/Technology";
 
@@ -99,6 +100,12 @@ export const technologies = {
     name: "Express",
     category: "Backend",
     icon: express,
+    darkArtwork: true,
+  },
+  Resend: {
+    name: "Resend + React Email",
+    category: "Backend",
+    icon: resend,
     darkArtwork: true,
   },
   FFmpeg: { name: "FFmpeg", category: "Backend", icon: ffmpeg },

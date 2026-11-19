@@ -143,7 +143,7 @@ const Navbar = () => {
             <ThemePicker
               id="desktop"
               onMedia={onMedia}
-              className="hidden md:inline-flex"
+              className="hidden md:inline-grid"
             />
             <MenuToggle
               ref={toggleRef}

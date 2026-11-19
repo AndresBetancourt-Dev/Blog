@@ -48,6 +48,7 @@ import payu from "./tech/payu.svg";
 import formik from "./tech/formik.svg";
 import googleanalytics from "./tech/googleanalytics.svg";
 import vercel from "./tech/vercel.svg";
+import resend from "./tech/resend.svg";
 
 /**
  * Companies
@@ -72,6 +73,11 @@ import ejecutapp from "./projects/ejecutapp-web.png";
 import filu from "./projects/filun2021.png";
 import polyphonic from "./projects/polyphonic.png";
 import telotraigo from "./projects/telotraigo.jpg";
+import bcCoffee from "./projects/bc-coffee.jpg";
+import fabripunto from "./projects/fabripunto.jpg";
+import felipeGallego from "./projects/felipe-gallego.jpg";
+import integrarteIps from "./projects/integrarte-ips.jpg";
+import nudoHouse from "./projects/nudo-house.png";
 import ejecutappMobile from "./projects/ejecutapp-mobile/cover.png";
 import ejecutappMobileScreen1 from "./projects/ejecutapp-mobile/screen-1.jpg";
 import ejecutappMobileScreen2 from "./projects/ejecutapp-mobile/screen-2.jpg";
@@ -125,6 +131,7 @@ export {
   formik,
   googleanalytics,
   vercel,
+  resend,
   /** Companies */
   globant,
   anthology,
@@ -143,6 +150,11 @@ export {
   filu,
   polyphonic,
   telotraigo,
+  bcCoffee,
+  fabripunto,
+  felipeGallego,
+  integrarteIps,
+  nudoHouse,
   ejecutappMobile,
   ejecutappMobileScreen1,
   ejecutappMobileScreen2,
