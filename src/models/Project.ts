@@ -7,6 +7,7 @@ export type ProjectCategory =
   | "EdTech"
   | "Banking"
   | "E-commerce"
+  | "Ticketing"
   | "Web";
 
 export interface Project {
@@ -35,7 +36,7 @@ export interface Project {
   /** Two-stop gradient used by the generated cover when there is no image. */
   accent: [string, string];
   /** Frame used for the screenshot in the project header. */
-  frame?: "browser" | "device";
+  frame?: "browser" | "device" | "plain";
   /** Extra screens shown in a gallery on the project page. */
   gallery?: { image: StaticImageData; caption: string }[];
   link?: string;

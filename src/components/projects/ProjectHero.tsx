@@ -69,6 +69,7 @@ const ProjectHero = ({ project, crumbs }: ProjectHeroProps) => {
   const photo = Boolean(project.image) && project.imageFit !== "contain";
   const logo = Boolean(project.image) && project.imageFit === "contain";
   const device = project.frame === "device";
+  const plain = project.frame === "plain";
 
   return (
     <header
@@ -214,10 +215,12 @@ const ProjectHero = ({ project, crumbs }: ProjectHeroProps) => {
                 className={`overflow-hidden shadow-[0_40px_100px_-30px_rgb(0_0_0/0.75)] transition-transform duration-700 ease-out-expo lg:[transform:rotateY(-9deg)_rotateX(3deg)] lg:hover:[transform:rotateY(0deg)_rotateX(0deg)] ${
                   device
                     ? "rounded-[1.75rem] border-[10px] border-neutral-900 bg-neutral-900 ring-1 ring-white/15"
+                    : plain
+                    ? "rounded-2xl ring-1 ring-white/20"
                     : "rounded-2xl border border-white/15 bg-black/40 ring-1 ring-black/20"
                 }`}
               >
-                {!device && (
+                {!device && !plain && (
                   <div
                     aria-hidden="true"
                     className="flex h-7 items-center gap-1.5 border-b border-white/10 bg-white/5 px-3"
@@ -229,7 +232,11 @@ const ProjectHero = ({ project, crumbs }: ProjectHeroProps) => {
                 )}
                 <Image
                   src={project.image}
-                  alt={`Screenshot of ${project.name}`}
+                  alt={
+                    plain
+                      ? `${project.name} — example artwork`
+                      : `Screenshot of ${project.name}`
+                  }
                   priority
                   placeholder="blur"
                   sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, 100vw"

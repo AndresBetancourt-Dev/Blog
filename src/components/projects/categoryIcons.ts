@@ -5,6 +5,7 @@ import {
   GraduationCap,
   Heartbeat,
   ShoppingCart,
+  Ticket,
   type Icon,
 } from "@phosphor-icons/react";
 import type { ProjectCategory } from "../../models/Project";
@@ -15,5 +16,6 @@ export const categoryIcons: Record<ProjectCategory, Icon> = {
   EdTech: GraduationCap,
   Banking: Bank,
   "E-commerce": ShoppingCart,
+  Ticketing: Ticket,
   Web: Globe,
 };

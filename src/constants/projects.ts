@@ -19,13 +19,15 @@ import {
   felipeGallego,
   integrarteIps,
   nudoHouse,
+  activoMorrales,
+  viveBoletos,
   transmiford,
   ultralms,
 } from "../assets";
 import type { Project, ProjectCategory } from "../models/Project";
 
 /** Curated order: most recent first. Source: LinkedIn profile + portfolio. */
-export const projects: Project[] = [
+const curatedProjects: Project[] = [
   {
     slug: "polyphonic",
     name: "Polyphonic",
@@ -336,6 +338,32 @@ export const projects: Project[] = [
     link: "https://www.nudo.house/",
   },
   {
+    slug: "activo-morrales",
+    name: "Activo Morrales",
+    tagline: "Backpacks and bags for every day, online.",
+    summary:
+      "WooCommerce store for a Colombian backpack brand: catalog by audience and product type, cart, WhatsApp contact and buy-now-pay-later with Addi.",
+    overview: [
+      "Activo Morrales is a Colombian brand of backpacks, travel bags, lunch boxes, pencil cases, fanny packs and luggage, with collections for men, women, boys and girls, leather pieces and a back-to-school line.",
+      "I built its online store with WordPress and WooCommerce, with a catalog organized both by who it's for and by product type, and buy-now-pay-later financing through Addi.",
+    ],
+    contributions: [
+      "Built the online store with WordPress and WooCommerce.",
+      "Organized the catalog by audience — men, women, boys and girls — and by product type: backpacks, travel bags, lunch boxes, pencil cases and fanny packs.",
+      "Highlighted the latest arrivals and seasonal collections like Back to School and Leather.",
+      "Promoted buy-now-pay-later financing with Addi and added a WhatsApp contact button.",
+    ],
+    role: "Freelance Software Developer",
+    company: "Freelance",
+    client: "Activo Morrales",
+    period: "2024",
+    category: "E-commerce",
+    technologies: ["Wordpress", "WooCommerce", "HTML", "CSS", "JS"],
+    image: activoMorrales,
+    accent: ["#0e7490", "#111827"],
+    link: "https://activomorrales.com/",
+  },
+  {
     slug: "telotraigo",
     name: "Te lo traigo",
     tagline:
@@ -375,6 +403,35 @@ export const projects: Project[] = [
     accent: ["#86198f", "#4a044e"],
     link: "https://www.telotraigo.com/",
     featured: true,
+  },
+  {
+    slug: "vive-boletos",
+    name: "Vive Boletos",
+    tagline: "Personalized PDF e-tickets for Cali's biggest concerts.",
+    summary:
+      "PHP ticket generator for a Cali box office: personalized PDF e-tickets with buyer details, ticket number, event info, price and a scannable QR code or barcode.",
+    overview: [
+      "Vive Boletos is the official box office for some of the biggest concerts and events in Cali, Colombia — from Cali Vive el Flow at Estadio Pascual Guerrero to Cali se Viste de Salsa — selling online and at its point of sale in Holguines Trade Center.",
+      "I didn't build their website: I built the tickets themselves. Every purchase produces a personalized PDF e-ticket, rendered from an HTML template with PHP and a PDF library, carrying everything needed at the gate.",
+    ],
+    contributions: [
+      "Built the ticket generator in PHP, rendering an HTML template to PDF with a PDF library.",
+      "Filled each ticket with the event's data — name, venue, address and date — and the buyer's name, surname and ticket number.",
+      "Generated a unique QR code or barcode for every ticket, used to validate entry at the gate.",
+      "Added a price module showing what the ticket costs.",
+      "Matched each event's artwork and branding, like the Cali Vive el Flow edition.",
+    ],
+    role: "Freelance Software Developer",
+    company: "Freelance",
+    client: "Vive Boletos",
+    period: "2023",
+    category: "Ticketing",
+    technologies: ["PHP", "HTML", "CSS"],
+    image: viveBoletos,
+    frame: "plain",
+    accent: ["#dc2626", "#111827"],
+    link: "https://viveboletos.com/",
+    linkLabel: "Visit Vive Boletos",
   },
   {
     slug: "bc-coffee-company",
@@ -554,6 +611,24 @@ export const projects: Project[] = [
   },
 ];
 
+/**
+ * Projects from these organizations always go to the end of every list
+ * (home, /projects, filters, prev/next, related, sitemap), wherever new
+ * projects are added in `curatedProjects`.
+ */
+const PINNED_LAST_COMPANIES = new Set(["Universidad Santiago de Cali"]);
+
+const isPinnedLast = (project: Project) =>
+  PINNED_LAST_COMPANIES.has(project.company);
+
+/** Moves pinned-last projects to the end, keeping everyone's relative order. */
+const pinLast = (list: Project[]) => [
+  ...list.filter((project) => !isPinnedLast(project)),
+  ...list.filter(isPinnedLast),
+];
+
+export const projects: Project[] = pinLast(curatedProjects);
+
 export const projectCategories: ProjectCategory[] = Array.from(
   new Set(projects.map((project) => project.category)),
 );
@@ -580,8 +655,10 @@ export const getRelatedProjects = (slug: string, limit = 3) => {
     project.technologies.filter((tech) => current.technologies.includes(tech))
       .length *
       0.25;
-  return projects
+  // Pick by relevance, then show pinned-last projects at the end.
+  const related = projects
     .filter((project) => project.slug !== slug)
     .sort((a, b) => score(b) - score(a))
     .slice(0, limit);
+  return pinLast(related);
 };

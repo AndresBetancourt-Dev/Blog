@@ -49,6 +49,7 @@ import formik from "./tech/formik.svg";
 import googleanalytics from "./tech/googleanalytics.svg";
 import vercel from "./tech/vercel.svg";
 import resend from "./tech/resend.svg";
+import php from "./tech/php.svg";
 
 /**
  * Companies
@@ -78,6 +79,8 @@ import fabripunto from "./projects/fabripunto.jpg";
 import felipeGallego from "./projects/felipe-gallego.jpg";
 import integrarteIps from "./projects/integrarte-ips.jpg";
 import nudoHouse from "./projects/nudo-house.png";
+import activoMorrales from "./projects/activo-morrales.jpg";
+import viveBoletos from "./projects/viveboletos.png";
 import ejecutappMobile from "./projects/ejecutapp-mobile/cover.png";
 import ejecutappMobileScreen1 from "./projects/ejecutapp-mobile/screen-1.jpg";
 import ejecutappMobileScreen2 from "./projects/ejecutapp-mobile/screen-2.jpg";
@@ -132,6 +135,7 @@ export {
   googleanalytics,
   vercel,
   resend,
+  php,
   /** Companies */
   globant,
   anthology,
@@ -155,6 +159,8 @@ export {
   felipeGallego,
   integrarteIps,
   nudoHouse,
+  activoMorrales,
+  viveBoletos,
   ejecutappMobile,
   ejecutappMobileScreen1,
   ejecutappMobileScreen2,

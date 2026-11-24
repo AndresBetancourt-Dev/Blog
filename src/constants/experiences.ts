@@ -133,7 +133,8 @@ export const experiences: Experience[] = [
     points: [
       "Delivered websites and online stores for brands in Colombia, from WordPress and WooCommerce builds to custom Next.js applications.",
       "Built Te lo traigo's headless WordPress + WooCommerce storefront in Next.js and TypeScript, including a live shipping calculator.",
-      "Created online stores for BC Coffee Company, Fabripunto and Transmiford with WooCommerce, Elementor and online payments.",
+      "Created online stores for Activo Morrales, BC Coffee Company, Fabripunto and Transmiford with WooCommerce, Elementor and online payments.",
+      "Built Vive Boletos' PDF e-ticket generator in PHP, with a unique QR code or barcode on every ticket for validation at the gate.",
       "Built sites for Integrarte IPS, architect Felipe Gallego and the NUDO brand studio.",
     ],
     skills: [
@@ -145,11 +146,14 @@ export const experiences: Experience[] = [
       "WooCommerce",
       "Elementor",
       "PayU",
+      "PHP",
       "Heroku",
     ],
     projects: [
       "nudo",
+      "activo-morrales",
       "telotraigo",
+      "vive-boletos",
       "bc-coffee-company",
       "fabripunto",
       "integrarte-ips",

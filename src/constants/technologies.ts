@@ -42,6 +42,7 @@ import {
   googleanalytics,
   vercel,
   resend,
+  php,
 } from "../assets";
 import type { Technology, TechCategory } from "../models/Technology";
 
@@ -53,6 +54,7 @@ export const technologies = {
   HTML: { name: "HTML5", category: "Languages", icon: html },
   CSS: { name: "CSS3", category: "Languages", icon: css },
   Cpp: { name: "C / C++", category: "Languages", icon: cplusplus },
+  PHP: { name: "PHP", category: "Languages", icon: php },
 
   /* Frontend */
   React: { name: "React", category: "Frontend", icon: reactjs },
