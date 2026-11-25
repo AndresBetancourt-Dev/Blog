@@ -68,7 +68,7 @@ import epam from "./company/epam.png";
  */
 import abc from "./projects/abc.png";
 import ultralms from "./projects/ultra-lms.png";
-import rawg from "./projects/rawg.png";
+import rawg from "./projects/rawg-games.jpg";
 import santander from "./projects/santander-peru.jpg";
 import transmiford from "./projects/transmiford.png";
 import banistmo from "./projects/banistmo.png";
@@ -92,6 +92,11 @@ import ejecutappMobileScreen2 from "./projects/ejecutapp-mobile/screen-2.jpg";
 import ejecutappMobileScreen3 from "./projects/ejecutapp-mobile/screen-3.jpg";
 import ejecutappMobileScreen4 from "./projects/ejecutapp-mobile/screen-4.jpg";
 import ejecutappMobileScreen5 from "./projects/ejecutapp-mobile/screen-5.jpg";
+import rawgScreen1 from "./projects/rawg-games/screen-1.jpg";
+import rawgScreen2 from "./projects/rawg-games/screen-2.jpg";
+import rawgScreen3 from "./projects/rawg-games/screen-3.jpg";
+import rawgScreen4 from "./projects/rawg-games/screen-4.jpg";
+import rawgScreen5 from "./projects/rawg-games/screen-5.jpg";
 
 export {
   /** Main */
@@ -177,4 +182,9 @@ export {
   ejecutappMobileScreen3,
   ejecutappMobileScreen4,
   ejecutappMobileScreen5,
+  rawgScreen1,
+  rawgScreen2,
+  rawgScreen3,
+  rawgScreen4,
+  rawgScreen5,
 };
