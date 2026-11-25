@@ -21,6 +21,8 @@ import {
   nudoHouse,
   activoMorrales,
   viveBoletos,
+  starWarsLanding,
+  marvelBootstrap,
   transmiford,
   ultralms,
 } from "../assets";
@@ -608,6 +610,59 @@ const curatedProjects: Project[] = [
     accent: ["#0f172a", "#334155"],
     link: "https://rawg-games.vercel.app/",
     sourceCode: "https://github.com/AndresBetancourt-Dev/Rawg",
+  },
+  {
+    slug: "marvel-landing-page",
+    name: "Marvel Landing Page",
+    tagline: "Movies, games and news, built with Bootstrap.",
+    summary:
+      "Responsive Marvel landing page built with Bootstrap 4 and jQuery: a news carousel, a grid of movie posters and featured games.",
+    overview: [
+      "A personal project: a responsive landing page for Marvel built with Bootstrap 4 and jQuery, with a full-width news carousel, a grid of movie posters, featured games and a footer of Marvel links.",
+      "In 2026 I revisited it to make it lighter and more accessible while keeping the original design.",
+    ],
+    contributions: [
+      "Built the layout with Bootstrap 4's grid, navbar, carousel and cards, plus custom fonts and gradients.",
+      "Added a collapsible navbar with scrollspy and a fading news carousel.",
+      "Cut the page weight from 19 MB to 3.5 MB by sizing every image for how it's displayed.",
+      "Added descriptive alt text, a page heading, a skip link and keyboard focus styles, and made the carousel pause on focus and respect reduced-motion settings.",
+    ],
+    role: "Creator",
+    company: "Personal project",
+    period: "Aug 2020",
+    category: "Web",
+    technologies: ["Bootstrap", "JQuery", "HTML", "CSS", "JS"],
+    image: marvelBootstrap,
+    accent: ["#dc2626", "#111827"],
+    link: "https://andresbetancourt-dev.github.io/Marvel-Bootstrap/",
+    sourceCode: "https://github.com/AndresBetancourt-Dev/Marvel-Bootstrap",
+  },
+  {
+    slug: "star-wars-landing-page",
+    name: "Star Wars Landing Page",
+    tagline: "A parallax landing page for a galaxy far, far away.",
+    summary:
+      "Star Wars landing page in plain HTML, CSS and JavaScript, with Rellax.js parallax, Star Wars-style typography and Font Awesome icons.",
+    overview: [
+      "A personal project: a landing page for Star Wars built with plain HTML, CSS and JavaScript — a quote from the saga over the Death Star, the Millennium Falcon, a short history of the franchise and an image gallery.",
+      "Sections scroll at different speeds with Rellax.js parallax, set in a Star Wars-style typeface. In 2026 I revisited it to improve accessibility and performance without changing the design.",
+    ],
+    contributions: [
+      "Built the page with semantic HTML and CSS Grid, custom fonts and gradient overlays.",
+      "Added layered parallax scrolling with Rellax.js and social links with Font Awesome.",
+      "Fixed stretched images so they keep their proportions, and cut the page weight from 5.2 MB to 2.3 MB.",
+      "Added alt text, landmarks, a skip link and keyboard focus styles, and turned off parallax for visitors who prefer reduced motion.",
+    ],
+    role: "Creator",
+    company: "Personal project",
+    period: "Aug 2020",
+    category: "Web",
+    technologies: ["HTML", "CSS", "JS", "FontAwesome"],
+    image: starWarsLanding,
+    accent: ["#0f172a", "#1e3a8a"],
+    link: "https://andresbetancourt-dev.github.io/Star-Wars-Landing-Page/",
+    sourceCode:
+      "https://github.com/AndresBetancourt-Dev/Star-Wars-Landing-Page",
   },
 ];
 

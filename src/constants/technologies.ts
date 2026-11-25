@@ -43,6 +43,9 @@ import {
   vercel,
   resend,
   php,
+  bootstrap,
+  jquery,
+  fontawesome,
 } from "../assets";
 import type { Technology, TechCategory } from "../models/Technology";
 
@@ -68,6 +71,8 @@ export const technologies = {
   },
   Sass: { name: "Sass", category: "Frontend", icon: sass },
   Tailwind: { name: "Tailwind CSS", category: "Frontend", icon: tailwind },
+  Bootstrap: { name: "Bootstrap", category: "Frontend", icon: bootstrap },
+  JQuery: { name: "jQuery", category: "Frontend", icon: jquery },
   StyledComponents: {
     name: "Styled Components",
     category: "Frontend",
@@ -148,6 +153,11 @@ export const technologies = {
 
   /* Tooling */
   Git: { name: "Git & GitHub", category: "Tooling", icon: git },
+  FontAwesome: {
+    name: "Font Awesome",
+    category: "Tooling",
+    icon: fontawesome,
+  },
   Figma: { name: "Figma", category: "Tooling", icon: figma },
   GoogleAnalytics: {
     name: "Google Analytics",

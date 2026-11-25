@@ -50,6 +50,9 @@ import googleanalytics from "./tech/googleanalytics.svg";
 import vercel from "./tech/vercel.svg";
 import resend from "./tech/resend.svg";
 import php from "./tech/php.svg";
+import bootstrap from "./tech/bootstrap.svg";
+import jquery from "./tech/jquery.svg";
+import fontawesome from "./tech/fontawesome.svg";
 
 /**
  * Companies
@@ -81,6 +84,8 @@ import integrarteIps from "./projects/integrarte-ips.jpg";
 import nudoHouse from "./projects/nudo-house.png";
 import activoMorrales from "./projects/activo-morrales.jpg";
 import viveBoletos from "./projects/viveboletos.png";
+import starWarsLanding from "./projects/star-wars-landing.jpg";
+import marvelBootstrap from "./projects/marvel-bootstrap.jpg";
 import ejecutappMobile from "./projects/ejecutapp-mobile/cover.png";
 import ejecutappMobileScreen1 from "./projects/ejecutapp-mobile/screen-1.jpg";
 import ejecutappMobileScreen2 from "./projects/ejecutapp-mobile/screen-2.jpg";
@@ -136,6 +141,9 @@ export {
   vercel,
   resend,
   php,
+  bootstrap,
+  jquery,
+  fontawesome,
   /** Companies */
   globant,
   anthology,
@@ -161,6 +169,8 @@ export {
   nudoHouse,
   activoMorrales,
   viveBoletos,
+  starWarsLanding,
+  marvelBootstrap,
   ejecutappMobile,
   ejecutappMobileScreen1,
   ejecutappMobileScreen2,
